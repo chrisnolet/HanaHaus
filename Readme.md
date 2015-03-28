@@ -1,4 +1,4 @@
-Example
-=======
+HanaHaus
+========
 
-Developed by Chris Nolet (c) 2014
+Developed by Chris Nolet (c) 2015
