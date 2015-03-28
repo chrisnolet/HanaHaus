@@ -1,0 +1,375 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83EDFA6C1AC75AE80013FD71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA6B1AC75AE80013FD71 /* main.m */; };
+		83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA6E1AC75AE80013FD71 /* AppDelegate.m */; };
+		83EDFA781AC75AE80013FD71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EDFA761AC75AE80013FD71 /* Main.storyboard */; };
+		83EDFA7A1AC75AE80013FD71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83EDFA791AC75AE80013FD71 /* Images.xcassets */; };
+		83EDFA7D1AC75AE80013FD71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83EDFA7B1AC75AE80013FD71 /* LaunchScreen.xib */; };
+		83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA931AC75BFF0013FD71 /* AppConstants.m */; };
+		83EDFAA11AC75BFF0013FD71 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA991AC75BFF0013FD71 /* DetailViewController.m */; };
+		83EDFAA21AC75BFF0013FD71 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA9B1AC75BFF0013FD71 /* MasterViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		83EDFA661AC75AE70013FD71 /* HanaHaus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanaHaus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83EDFA6A1AC75AE80013FD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83EDFA6B1AC75AE80013FD71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83EDFA6D1AC75AE80013FD71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		83EDFA6E1AC75AE80013FD71 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		83EDFA771AC75AE80013FD71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		83EDFA791AC75AE80013FD71 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		83EDFA7C1AC75AE80013FD71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		83EDFA921AC75BFF0013FD71 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		83EDFA931AC75BFF0013FD71 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
+		83EDFA981AC75BFF0013FD71 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		83EDFA991AC75BFF0013FD71 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		83EDFA9A1AC75BFF0013FD71 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		83EDFA9B1AC75BFF0013FD71 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		83EDFA9C1AC75BFF0013FD71 /* HanaHaus-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HanaHaus-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83EDFA631AC75AE70013FD71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83EDFA5D1AC75AE70013FD71 = {
+			isa = PBXGroup;
+			children = (
+				83EDFA681AC75AE70013FD71 /* HanaHaus */,
+				83EDFA671AC75AE70013FD71 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83EDFA671AC75AE70013FD71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83EDFA661AC75AE70013FD71 /* HanaHaus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83EDFA681AC75AE70013FD71 /* HanaHaus */ = {
+			isa = PBXGroup;
+			children = (
+				83EDFA761AC75AE80013FD71 /* Main.storyboard */,
+				83EDFA6D1AC75AE80013FD71 /* AppDelegate.h */,
+				83EDFA6E1AC75AE80013FD71 /* AppDelegate.m */,
+				83EDFA921AC75BFF0013FD71 /* AppConstants.h */,
+				83EDFA931AC75BFF0013FD71 /* AppConstants.m */,
+				83EDFA9D1AC75BFF0013FD71 /* Models */,
+				83EDFA971AC75BFF0013FD71 /* Controllers */,
+				83EDFA9F1AC75BFF0013FD71 /* Views */,
+				83EDFA961AC75BFF0013FD71 /* Categories */,
+				83EDFA9E1AC75BFF0013FD71 /* Segues */,
+				83EDFA941AC75BFF0013FD71 /* Assets@2x */,
+				83EDFA951AC75BFF0013FD71 /* Assets@3x */,
+				83EDFA791AC75AE80013FD71 /* Images.xcassets */,
+				83EDFA7B1AC75AE80013FD71 /* LaunchScreen.xib */,
+				83EDFA691AC75AE80013FD71 /* Supporting Files */,
+			);
+			path = HanaHaus;
+			sourceTree = "<group>";
+		};
+		83EDFA691AC75AE80013FD71 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83EDFA6A1AC75AE80013FD71 /* Info.plist */,
+				83EDFA6B1AC75AE80013FD71 /* main.m */,
+				83EDFA9C1AC75BFF0013FD71 /* HanaHaus-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83EDFA941AC75BFF0013FD71 /* Assets@2x */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Assets@2x";
+			sourceTree = "<group>";
+		};
+		83EDFA951AC75BFF0013FD71 /* Assets@3x */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Assets@3x";
+			sourceTree = "<group>";
+		};
+		83EDFA961AC75BFF0013FD71 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		83EDFA971AC75BFF0013FD71 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				83EDFA981AC75BFF0013FD71 /* DetailViewController.h */,
+				83EDFA991AC75BFF0013FD71 /* DetailViewController.m */,
+				83EDFA9A1AC75BFF0013FD71 /* MasterViewController.h */,
+				83EDFA9B1AC75BFF0013FD71 /* MasterViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		83EDFA9D1AC75BFF0013FD71 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		83EDFA9E1AC75BFF0013FD71 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Segues;
+			sourceTree = "<group>";
+		};
+		83EDFA9F1AC75BFF0013FD71 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83EDFA651AC75AE70013FD71 /* HanaHaus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83EDFA8C1AC75AE80013FD71 /* Build configuration list for PBXNativeTarget "HanaHaus" */;
+			buildPhases = (
+				83EDFA621AC75AE70013FD71 /* Sources */,
+				83EDFA631AC75AE70013FD71 /* Frameworks */,
+				83EDFA641AC75AE70013FD71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HanaHaus;
+			productName = HanaHaus;
+			productReference = 83EDFA661AC75AE70013FD71 /* HanaHaus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83EDFA5E1AC75AE70013FD71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = Relaunch;
+				TargetAttributes = {
+					83EDFA651AC75AE70013FD71 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+				};
+			};
+			buildConfigurationList = 83EDFA611AC75AE70013FD71 /* Build configuration list for PBXProject "HanaHaus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83EDFA5D1AC75AE70013FD71;
+			productRefGroup = 83EDFA671AC75AE70013FD71 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83EDFA651AC75AE70013FD71 /* HanaHaus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83EDFA641AC75AE70013FD71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83EDFA781AC75AE80013FD71 /* Main.storyboard in Resources */,
+				83EDFA7D1AC75AE80013FD71 /* LaunchScreen.xib in Resources */,
+				83EDFA7A1AC75AE80013FD71 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83EDFA621AC75AE70013FD71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */,
+				83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */,
+				83EDFAA21AC75BFF0013FD71 /* MasterViewController.m in Sources */,
+				83EDFA6C1AC75AE80013FD71 /* main.m in Sources */,
+				83EDFAA11AC75BFF0013FD71 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		83EDFA761AC75AE80013FD71 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83EDFA771AC75AE80013FD71 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		83EDFA7B1AC75AE80013FD71 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83EDFA7C1AC75AE80013FD71 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83EDFA8A1AC75AE80013FD71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83EDFA8B1AC75AE80013FD71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83EDFA8D1AC75AE80013FD71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HanaHaus/HanaHaus-Prefix.pch";
+				INFOPLIST_FILE = HanaHaus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		83EDFA8E1AC75AE80013FD71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HanaHaus/HanaHaus-Prefix.pch";
+				INFOPLIST_FILE = HanaHaus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83EDFA611AC75AE70013FD71 /* Build configuration list for PBXProject "HanaHaus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83EDFA8A1AC75AE80013FD71 /* Debug */,
+				83EDFA8B1AC75AE80013FD71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83EDFA8C1AC75AE80013FD71 /* Build configuration list for PBXNativeTarget "HanaHaus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83EDFA8D1AC75AE80013FD71 /* Debug */,
+				83EDFA8E1AC75AE80013FD71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83EDFA5E1AC75AE70013FD71 /* Project object */;
+}
