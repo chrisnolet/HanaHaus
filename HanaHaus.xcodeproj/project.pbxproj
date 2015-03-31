@@ -13,8 +13,7 @@
 		83EDFA7A1AC75AE80013FD71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83EDFA791AC75AE80013FD71 /* Images.xcassets */; };
 		83EDFA7D1AC75AE80013FD71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83EDFA7B1AC75AE80013FD71 /* LaunchScreen.xib */; };
 		83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA931AC75BFF0013FD71 /* AppConstants.m */; };
-		83EDFAA11AC75BFF0013FD71 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA991AC75BFF0013FD71 /* DetailViewController.m */; };
-		83EDFAA21AC75BFF0013FD71 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA9B1AC75BFF0013FD71 /* MasterViewController.m */; };
+		83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA991AC75BFF0013FD71 /* BookingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +27,8 @@
 		83EDFA7C1AC75AE80013FD71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		83EDFA921AC75BFF0013FD71 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		83EDFA931AC75BFF0013FD71 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
-		83EDFA981AC75BFF0013FD71 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		83EDFA991AC75BFF0013FD71 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		83EDFA9A1AC75BFF0013FD71 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		83EDFA9B1AC75BFF0013FD71 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		83EDFA981AC75BFF0013FD71 /* BookingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingViewController.h; sourceTree = "<group>"; };
+		83EDFA991AC75BFF0013FD71 /* BookingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingViewController.m; sourceTree = "<group>"; };
 		83EDFA9C1AC75BFF0013FD71 /* HanaHaus-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HanaHaus-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,10 +115,8 @@
 		83EDFA971AC75BFF0013FD71 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				83EDFA981AC75BFF0013FD71 /* DetailViewController.h */,
-				83EDFA991AC75BFF0013FD71 /* DetailViewController.m */,
-				83EDFA9A1AC75BFF0013FD71 /* MasterViewController.h */,
-				83EDFA9B1AC75BFF0013FD71 /* MasterViewController.m */,
+				83EDFA981AC75BFF0013FD71 /* BookingViewController.h */,
+				83EDFA991AC75BFF0013FD71 /* BookingViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -219,9 +214,8 @@
 			files = (
 				83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */,
 				83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */,
-				83EDFAA21AC75BFF0013FD71 /* MasterViewController.m in Sources */,
 				83EDFA6C1AC75AE80013FD71 /* main.m in Sources */,
-				83EDFAA11AC75BFF0013FD71 /* DetailViewController.m in Sources */,
+				83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

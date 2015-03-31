@@ -1,5 +1,5 @@
 //
-//  MasterViewController.h
+//  BookingViewController.h
 //  HanaHaus
 //
 //  Created by Chris Nolet on 3/28/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UITableViewController
-
+@interface BookingViewController : UITableViewController
 
 @end
-
