@@ -10,7 +10,32 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apb-cf-wN3">
+                    <rect key="frame" x="0.0" y="20" width="480" height="44"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="barTintColor" red="0.16078431369999999" green="0.3803921569" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <items>
+                        <navigationItem title="HanaHaus" id="y1r-8N-RA0"/>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hZb-hE-Qgi">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="20"/>
+                    <color key="backgroundColor" red="0.16078431369999999" green="0.3803921569" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="5xK-Dh-oZS"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="apb-cf-wN3" firstAttribute="top" secondItem="hZb-hE-Qgi" secondAttribute="bottom" id="0pb-og-0vL"/>
+                <constraint firstItem="hZb-hE-Qgi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DBf-Xh-ykd"/>
+                <constraint firstAttribute="trailing" secondItem="apb-cf-wN3" secondAttribute="trailing" id="Jlb-pp-epb"/>
+                <constraint firstItem="hZb-hE-Qgi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Vnr-bc-URE"/>
+                <constraint firstItem="apb-cf-wN3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="eHo-XD-gjR"/>
+                <constraint firstAttribute="trailing" secondItem="hZb-hE-Qgi" secondAttribute="trailing" id="uvX-dd-rS3"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
