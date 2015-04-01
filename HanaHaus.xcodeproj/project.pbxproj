@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83EB08871ACB3ACC009B2A26 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EB08851ACB3ACC009B2A26 /* Logo.png */; };
+		83EB08881ACB3ACC009B2A26 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EB08861ACB3ACC009B2A26 /* Title.png */; };
 		83EDFA6C1AC75AE80013FD71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA6B1AC75AE80013FD71 /* main.m */; };
 		83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA6E1AC75AE80013FD71 /* AppDelegate.m */; };
 		83EDFA781AC75AE80013FD71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EDFA761AC75AE80013FD71 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83EB08851ACB3ACC009B2A26 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
+		83EB08861ACB3ACC009B2A26 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title.png; sourceTree = "<group>"; };
 		83EDFA661AC75AE70013FD71 /* HanaHaus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanaHaus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EDFA6A1AC75AE80013FD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83EDFA6B1AC75AE80013FD71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83EB08841ACB3ACC009B2A26 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				83EB08851ACB3ACC009B2A26 /* Logo.png */,
+				83EB08861ACB3ACC009B2A26 /* Title.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		83EDFA5D1AC75AE70013FD71 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +85,7 @@
 				83EDFA9F1AC75BFF0013FD71 /* Views */,
 				83EDFA961AC75BFF0013FD71 /* Categories */,
 				83EDFA9E1AC75BFF0013FD71 /* Segues */,
+				83EB08841ACB3ACC009B2A26 /* Assets */,
 				83EDFA941AC75BFF0013FD71 /* Assets@2x */,
 				83EDFA951AC75BFF0013FD71 /* Assets@3x */,
 				83EDFA791AC75AE80013FD71 /* Images.xcassets */,
@@ -199,6 +213,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83EB08871ACB3ACC009B2A26 /* Logo.png in Resources */,
+				83EB08881ACB3ACC009B2A26 /* Title.png in Resources */,
 				83EDFA781AC75AE80013FD71 /* Main.storyboard in Resources */,
 				83EDFA7D1AC75AE80013FD71 /* LaunchScreen.xib in Resources */,
 				83EDFA7A1AC75AE80013FD71 /* Images.xcassets in Resources */,
@@ -362,6 +378,7 @@
 				83EDFA8E1AC75AE80013FD71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
