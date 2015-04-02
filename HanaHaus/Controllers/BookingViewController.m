@@ -8,6 +8,12 @@
 
 #import "BookingViewController.h"
 
+@interface BookingViewController ()
+
+@property (strong, nonatomic) UIView *headerView;
+
+@end
+
 @implementation BookingViewController
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -18,12 +24,22 @@
 {
     [super viewDidLoad];
 
+    // Remove navigation bar shadow
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]
                                                   forBarMetrics:UIBarMetricsDefault];
 
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
 
-//    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Title.png"]];
+    // Add header view
+    self.headerView = [[[UINib nibWithNibName:@"Header" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
+
+    [self.tableView addSubview:self.headerView];
+
+    // Set header width and height
+    CGRect frame = CGRectMake(0, 0, self.tableView.frame.size.width, self.headerView.frame.size.height);
+
+    self.headerView.frame = frame;
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,7 +47,7 @@
 {
     [super viewWillAppear:animated];
 
-//    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,16 +55,13 @@
 {
     [super viewWillDisappear:animated];
 
-//    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)viewDidLayoutSubviews
+- (UIStatusBarStyle)preferredStatusBarStyle
 {
-//    CGRect frame = self.navigationController.navigationBar.frame;
-//    frame.size.height = 0.0f;
-//
-//    self.navigationController.navigationBar.frame = frame;
+    return UIStatusBarStyleLightContent;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -70,21 +83,19 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    // Keep the balance view pinned (floating) when the user pulls to refresh
+    // Pin the header view to the top of the table view
     CGFloat offset = self.tableView.contentOffset.y;
-    NSLog(@"%f", offset);
-    if (offset < 0) {
 
-        // Pulled to refresh
-        self.tableView.tableHeaderView.transform = CGAffineTransformMakeTranslation(0, offset);
-
-    } else {
-
-        // Partially visible
-        if (offset < self.tableView.tableHeaderView.frame.size.height) {
-            self.tableView.tableHeaderView.transform = CGAffineTransformIdentity;
-        }
-    }
+    self.headerView.frame = CGRectMake(0,
+                                       offset,
+                                       self.tableView.bounds.size.width,
+                                       MAX(self.tableView.tableHeaderView.bounds.size.height - offset, 0));
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Public methods
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 @end
