@@ -70,6 +70,9 @@
                                             <subviews>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="qhn-4G-Ifc">
                                                     <rect key="frame" x="490" y="12" width="94" height="29"/>
+                                                    <connections>
+                                                        <action selector="stepperValueDidChange:" destination="IQk-MY-Ndw" eventType="valueChanged" id="RBW-bI-JlB"/>
+                                                    </connections>
                                                 </stepper>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of People" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2F4-bb-3WH">
                                                     <rect key="frame" x="15" y="17" width="132" height="20"/>
@@ -102,6 +105,9 @@
                                             <subviews>
                                                 <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZAw-XN-bnn">
                                                     <rect key="frame" x="490" y="12" width="94" height="29"/>
+                                                    <connections>
+                                                        <action selector="stepperValueDidChange:" destination="IQk-MY-Ndw" eventType="valueChanged" id="S10-Ip-5kW"/>
+                                                    </connections>
                                                 </stepper>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5F-eL-wfr">
                                                     <rect key="frame" x="15" y="17" width="44" height="20"/>
@@ -167,6 +173,13 @@
                     <navigationItem key="navigationItem" title="HanaHaus" id="ZhH-Nj-MAO">
                         <barButtonItem key="backBarButtonItem" title="Back" id="MPj-ag-TAq"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="bookingTypeCell" destination="2Vj-yq-9at" id="81B-AW-gsb"/>
+                        <outlet property="hoursLabel" destination="V3J-67-6dT" id="TNL-DH-tSN"/>
+                        <outlet property="hoursStepper" destination="ZAw-XN-bnn" id="oHQ-Df-sdZ"/>
+                        <outlet property="numberOfPeopleLabel" destination="Fef-AK-uim" id="Lvw-vw-oSU"/>
+                        <outlet property="numberOfPeopleStepper" destination="qhn-4G-Ifc" id="ZKP-4d-FKh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thr-2W-Z9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,7 +196,41 @@
                     <view key="view" contentMode="scaleToFill" id="aAS-xT-qvU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are about to book a Single Seat for 1 person, for 1 hour." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO9-ie-V6W">
+                                <rect key="frame" x="20" y="175" width="560" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-Black.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gwn-ih-EiZ">
+                                <rect key="frame" x="248" y="40" width="105" height="105"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2i-iS-wSC">
+                                <rect key="frame" x="20" y="225" width="560" height="50"/>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.3803921569" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="iyF-zX-YYO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Confirm"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q2i-iS-wSC" firstAttribute="top" secondItem="DO9-ie-V6W" secondAttribute="bottom" constant="30" id="Pli-ls-hFW"/>
+                            <constraint firstAttribute="trailing" secondItem="DO9-ie-V6W" secondAttribute="trailing" constant="20" id="QY7-XA-Jr9"/>
+                            <constraint firstAttribute="centerX" secondItem="Gwn-ih-EiZ" secondAttribute="centerX" id="Y3N-wj-Hy4"/>
+                            <constraint firstItem="Gwn-ih-EiZ" firstAttribute="top" secondItem="Wem-7d-2Ra" secondAttribute="bottom" constant="40" id="bbx-o3-lVW"/>
+                            <constraint firstItem="Q2i-iS-wSC" firstAttribute="leading" secondItem="aAS-xT-qvU" secondAttribute="leading" constant="20" id="i8y-sj-cky"/>
+                            <constraint firstAttribute="trailing" secondItem="Q2i-iS-wSC" secondAttribute="trailing" constant="20" id="nt9-Sd-vC6"/>
+                            <constraint firstItem="DO9-ie-V6W" firstAttribute="leading" secondItem="aAS-xT-qvU" secondAttribute="leading" constant="20" id="qeV-rd-PQ1"/>
+                            <constraint firstItem="DO9-ie-V6W" firstAttribute="top" secondItem="Gwn-ih-EiZ" secondAttribute="bottom" constant="30" id="sVk-1A-AKx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Confirm" id="ctL-bA-XkT"/>
                 </viewController>
@@ -282,10 +329,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Booking Type" id="oyK-7L-zxz"/>
+                    <connections>
+                        <segue destination="0lV-Gr-geC" kind="unwind" identifier="UnwindFromBookingTypeSegue" unwindAction="unwindFromBookingType:" id="i2C-56-nxI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5o-qx-T1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="0lV-Gr-geC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="580" y="810"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo-Black.png" width="105" height="105"/>
+    </resources>
 </document>

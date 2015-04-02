@@ -10,4 +10,6 @@
 
 @interface BookingTypeTableViewController : UITableViewController
 
+@property (nonatomic, assign) NSInteger bookingTypeIndex;
+
 @end

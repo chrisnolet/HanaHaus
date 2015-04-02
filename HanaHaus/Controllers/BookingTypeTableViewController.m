@@ -29,6 +29,14 @@
 #pragma mark - UITableViewDelegate
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.bookingTypeIndex = indexPath.row;
+
+    [self performSegueWithIdentifier:@"UnwindFromBookingTypeSegue" sender:nil];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Fix for separator insets on iOS 8: http://stackoverflow.com/questions/25770119/#25877725
