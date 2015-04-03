@@ -60,7 +60,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Lzc-pG-ndP" kind="show" id="wST-OH-pV2"/>
+                                            <segue destination="Lzc-pG-ndP" kind="show" identifier="BookingTypeSegue" id="wST-OH-pV2"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="PUX-LU-0d3">
@@ -151,7 +151,7 @@
                                                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <segue destination="58L-GJ-RYr" kind="show" id="FXR-X7-YE4"/>
+                                                        <segue destination="58L-GJ-RYr" kind="show" identifier="ConfirmSegue" id="FXR-X7-YE4"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -188,7 +188,7 @@
         <!--Confirm-->
         <scene sceneID="hvg-Ln-hd5">
             <objects>
-                <viewController id="58L-GJ-RYr" sceneMemberID="viewController">
+                <viewController id="58L-GJ-RYr" customClass="ConfirmViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wem-7d-2Ra"/>
                         <viewControllerLayoutGuide type="bottom" id="zDt-1F-SI6"/>
@@ -197,17 +197,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are about to book a Single Seat for 1 person, for 1 hour." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO9-ie-V6W">
-                                <rect key="frame" x="20" y="175" width="560" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO9-ie-V6W">
+                                <rect key="frame" x="20" y="175" width="560" height="23"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="You are about to book a Single Seat for 1 person, for 1 hour.">
+                                        <attributes>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-Black.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gwn-ih-EiZ">
                                 <rect key="frame" x="248" y="40" width="105" height="105"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2i-iS-wSC">
-                                <rect key="frame" x="20" y="225" width="560" height="50"/>
+                                <rect key="frame" x="20" y="228" width="560" height="50"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.3803921569" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="iyF-zX-YYO"/>
@@ -233,6 +240,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Confirm" id="ctL-bA-XkT"/>
+                    <connections>
+                        <outlet property="detailLabel" destination="DO9-ie-V6W" id="Nc3-jt-J1v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NWO-O6-U0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

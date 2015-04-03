@@ -7,10 +7,13 @@
 //
 
 #import "BookingViewController.h"
+#import "BookingTypeTableViewController.h"
+#import "ConfirmViewController.h"
 
 @interface BookingViewController ()
 
 @property (strong, nonatomic) UIView *headerView;
+@property (nonatomic, assign) NSInteger bookingTypeIndex;
 
 @end
 
@@ -64,9 +67,19 @@
     return UIStatusBarStyleLightContent;
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier isEqualToString:@"BookingTypeSegue"]) {
 
+    }
+    else if ([segue.identifier isEqualToString:@"ConfirmSegue"]) {
+        ConfirmViewController *confirmViewController = segue.destinationViewController;
+
+        confirmViewController.bookingTypeIndex = self.bookingTypeIndex;
+        confirmViewController.numberOfPeople = self.numberOfPeopleStepper.value;
+        confirmViewController.hours = self.hoursStepper.value;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,6 +116,9 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)unwindFromBookingType:(UIStoryboardSegue *)unwindSegue
 {
+    BookingTypeTableViewController *bookingTypeTableViewController = unwindSegue.sourceViewController;
+
+    self.bookingTypeIndex = bookingTypeTableViewController.bookingTypeIndex;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

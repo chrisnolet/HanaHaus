@@ -10,6 +10,7 @@
 		835227ED1ACD0E8D00B42DD2 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835227EC1ACD0E8D00B42DD2 /* Header.xib */; };
 		839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */; };
 		839BF9571ACE02D100A8C370 /* Logo-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 839BF9561ACE02D100A8C370 /* Logo-Black.png */; };
+		83A5682D1ACE07B000D541A8 /* ConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5682C1ACE07B000D541A8 /* ConfirmViewController.m */; };
 		83EB08871ACB3ACC009B2A26 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EB08851ACB3ACC009B2A26 /* Logo.png */; };
 		83EB08881ACB3ACC009B2A26 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EB08861ACB3ACC009B2A26 /* Title.png */; };
 		83EDFA6C1AC75AE80013FD71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA6B1AC75AE80013FD71 /* main.m */; };
@@ -26,6 +27,8 @@
 		839BF9531ACDF5FF00A8C370 /* BookingTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingTypeTableViewController.h; sourceTree = "<group>"; };
 		839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingTypeTableViewController.m; sourceTree = "<group>"; };
 		839BF9561ACE02D100A8C370 /* Logo-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-Black.png"; sourceTree = "<group>"; };
+		83A5682B1ACE07B000D541A8 /* ConfirmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmViewController.h; sourceTree = "<group>"; };
+		83A5682C1ACE07B000D541A8 /* ConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmViewController.m; sourceTree = "<group>"; };
 		83EB08851ACB3ACC009B2A26 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		83EB08861ACB3ACC009B2A26 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title.png; sourceTree = "<group>"; };
 		83EDFA661AC75AE70013FD71 /* HanaHaus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanaHaus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +144,8 @@
 				83EDFA991AC75BFF0013FD71 /* BookingViewController.m */,
 				839BF9531ACDF5FF00A8C370 /* BookingTypeTableViewController.h */,
 				839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */,
+				83A5682B1ACE07B000D541A8 /* ConfirmViewController.h */,
+				83A5682C1ACE07B000D541A8 /* ConfirmViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */,
 				83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */,
 				83EDFA6C1AC75AE80013FD71 /* main.m in Sources */,
+				83A5682D1ACE07B000D541A8 /* ConfirmViewController.m in Sources */,
 				83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */,
 				839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */,
 			);
