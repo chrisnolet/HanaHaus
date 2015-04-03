@@ -7,6 +7,7 @@
 //
 
 #import "ConfirmViewController.h"
+#import "UIButton+ActivityIndicatorView.h"
 
 @interface ConfirmViewController ()
 
@@ -74,12 +75,18 @@
     // Create attributes
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.alignment = NSTextAlignmentCenter;
-    paragraphStyle.lineHeightMultiple = 1.2f;
+    paragraphStyle.lineHeightMultiple = 1.3f;
 
     NSDictionary *attributes = @{ NSParagraphStyleAttributeName: paragraphStyle };
 
     // Set attributed text
     self.detailLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (IBAction)confirmButtonPressed:(id)sender
+{
+    [self.confirmButton startAnimating];
 }
 
 @end

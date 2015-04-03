@@ -225,6 +225,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="confirmButtonPressed:" destination="58L-GJ-RYr" eventType="touchUpInside" id="793-Ed-4Nx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -241,6 +244,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Confirm" id="ctL-bA-XkT"/>
                     <connections>
+                        <outlet property="confirmButton" destination="Q2i-iS-wSC" id="Q1N-an-7u3"/>
                         <outlet property="detailLabel" destination="DO9-ie-V6W" id="Nc3-jt-J1v"/>
                     </connections>
                 </viewController>
