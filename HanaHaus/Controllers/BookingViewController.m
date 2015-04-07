@@ -15,6 +15,8 @@
 @property (strong, nonatomic) UIView *headerView;
 @property (nonatomic, assign) NSInteger bookingTypeIndex;
 
+- (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification;
+
 @end
 
 @implementation BookingViewController
@@ -27,10 +29,14 @@
 {
     [super viewDidLoad];
 
-    // Remove navigation bar shadow
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]
-                                                  forBarMetrics:UIBarMetricsDefault];
+    // Adjust header placement after toggling in-call status bar
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationWillChangeStatusBarFrame:)
+                                                 name:UIApplicationWillChangeStatusBarFrameNotification
+                                               object:nil];
 
+    // Remove navigation bar shadow
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
 
     // Add header view
@@ -83,6 +89,15 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - NSObject
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - UITableViewDelegate
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,6 +141,17 @@
 {
     self.numberOfPeopleLabel.text = [NSString stringWithFormat:@"%.0f", self.numberOfPeopleStepper.value];
     self.hoursLabel.text = [NSString stringWithFormat:@"%.0f", self.hoursStepper.value];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Private methods
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self scrollViewDidScroll:self.tableView];
+    });
 }
 
 @end
