@@ -21,6 +21,7 @@
 		83EDFA7D1AC75AE80013FD71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83EDFA7B1AC75AE80013FD71 /* LaunchScreen.xib */; };
 		83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA931AC75BFF0013FD71 /* AppConstants.m */; };
 		83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA991AC75BFF0013FD71 /* BookingViewController.m */; };
+		83FD013A1AD7362700262364 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FD01391AD7362700262364 /* ProfileTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		83EDFA981AC75BFF0013FD71 /* BookingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingViewController.h; sourceTree = "<group>"; };
 		83EDFA991AC75BFF0013FD71 /* BookingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingViewController.m; sourceTree = "<group>"; };
 		83EDFA9C1AC75BFF0013FD71 /* HanaHaus-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HanaHaus-Prefix.pch"; sourceTree = "<group>"; };
+		83FD01381AD7362700262364 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
+		83FD01391AD7362700262364 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 				83EDFA991AC75BFF0013FD71 /* BookingViewController.m */,
 				839BF9531ACDF5FF00A8C370 /* BookingTypeTableViewController.h */,
 				839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */,
+				83FD01381AD7362700262364 /* ProfileTableViewController.h */,
+				83FD01391AD7362700262364 /* ProfileTableViewController.m */,
 				83A5682B1ACE07B000D541A8 /* ConfirmViewController.h */,
 				83A5682C1ACE07B000D541A8 /* ConfirmViewController.m */,
 			);
@@ -258,6 +263,7 @@
 				83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */,
 				839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */,
 				83A568301ACE174600D541A8 /* UIButton+ActivityIndicatorView.m in Sources */,
+				83FD013A1AD7362700262364 /* ProfileTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,14 +1,14 @@
 //
-//  BookingTypeTableViewController.m
+//  ProfileTableViewController.m
 //  HanaHaus
 //
-//  Created by Chris Nolet on 4/2/15.
+//  Created by Chris Nolet on 4/9/15.
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
-#import "BookingTypeTableViewController.h"
+#import "ProfileTableViewController.h"
 
-@implementation BookingTypeTableViewController
+@implementation ProfileTableViewController
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - UIViewController
@@ -22,14 +22,6 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -39,14 +31,6 @@
 #pragma mark - UITableViewDelegate
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    self.bookingTypeIndex = indexPath.row;
-
-    [self performSegueWithIdentifier:@"UnwindFromBookingTypeSegue" sender:nil];
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Fix for separator insets on iOS 8: http://stackoverflow.com/questions/25770119/#25877725
@@ -54,6 +38,15 @@
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
     }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Public methods
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (IBAction)cancelBarButtonItemPressed:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

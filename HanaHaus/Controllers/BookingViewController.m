@@ -60,14 +60,6 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -121,8 +113,8 @@
 
     self.headerView.frame = CGRectMake(0,
                                        offset,
-                                       self.tableView.bounds.size.width,
-                                       MAX(self.tableView.tableHeaderView.bounds.size.height - offset, 0));
+                                       self.tableView.frame.size.width,
+                                       MAX(self.tableView.tableHeaderView.frame.size.height - offset, 0));
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -141,6 +133,12 @@
 {
     self.numberOfPeopleLabel.text = [NSString stringWithFormat:@"%.0f", self.numberOfPeopleStepper.value];
     self.hoursLabel.text = [NSString stringWithFormat:@"%.0f", self.hoursStepper.value];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (IBAction)continueButtonPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"ConfirmSegue" sender:nil];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -18,5 +18,6 @@
 
 - (IBAction)unwindFromBookingType:(UIStoryboardSegue *)unwindSegue;
 - (IBAction)stepperValueDidChange:(id)sender;
+- (IBAction)continueButtonPressed:(id)sender;
 
 @end
