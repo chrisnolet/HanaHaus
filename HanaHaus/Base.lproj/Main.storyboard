@@ -358,6 +358,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emailTextField" destination="ABU-C3-JeB" id="3Z4-lV-YdJ"/>
+                        <outlet property="nameTextField" destination="9cR-Gw-SFB" id="yQ0-XV-Ihr"/>
+                        <outlet property="phoneTextField" destination="TaB-Il-azR" id="YSA-hQ-7kI"/>
+                        <outlet property="zipTextField" destination="Rcs-pg-0pA" id="TGU-iz-qDF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lS-mx-7Ae" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="VcO-c2-6XG" userLabel="Exit" sceneMemberID="exit"/>

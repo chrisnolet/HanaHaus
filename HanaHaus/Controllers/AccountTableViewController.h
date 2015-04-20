@@ -10,6 +10,11 @@
 
 @interface AccountTableViewController : UITableViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *nameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *emailTextField;
+@property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (strong, nonatomic) IBOutlet UITextField *zipTextField;
+
 - (IBAction)cancelBarButtonItemPressed:(id)sender;
 - (IBAction)doneBarButtonItemPressed:(id)sender;
 
