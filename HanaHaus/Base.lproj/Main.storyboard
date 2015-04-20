@@ -181,7 +181,7 @@
                         <outlet property="numberOfPeopleLabel" destination="Fef-AK-uim" id="Lvw-vw-oSU"/>
                         <outlet property="numberOfPeopleStepper" destination="qhn-4G-Ifc" id="ZKP-4d-FKh"/>
                         <segue destination="58L-GJ-RYr" kind="show" identifier="ConfirmSegue" id="fsH-lE-875"/>
-                        <segue destination="igH-NI-VnV" kind="presentation" identifier="ProfileSegue" id="wpS-l3-LaF"/>
+                        <segue destination="igH-NI-VnV" kind="presentation" identifier="AccountSegue" id="wpS-l3-LaF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thr-2W-Z9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -352,6 +352,7 @@
                                 <action selector="cancelBarButtonItemPressed:" destination="XRc-qW-dWL" id="pMo-sC-pb5"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="57o-dw-GJN"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lS-mx-7Ae" userLabel="First Responder" sceneMemberID="firstResponder"/>

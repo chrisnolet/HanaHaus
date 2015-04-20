@@ -11,5 +11,6 @@
 @interface ProfileTableViewController : UITableViewController
 
 - (IBAction)cancelBarButtonItemPressed:(id)sender;
+- (IBAction)doneBarButtonItemPressed:(id)sender;
 
 @end

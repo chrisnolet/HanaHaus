@@ -49,4 +49,10 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (IBAction)doneBarButtonItemPressed:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
