@@ -21,7 +21,7 @@
 		83EDFA7D1AC75AE80013FD71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83EDFA7B1AC75AE80013FD71 /* LaunchScreen.xib */; };
 		83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA931AC75BFF0013FD71 /* AppConstants.m */; };
 		83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA991AC75BFF0013FD71 /* BookingViewController.m */; };
-		83FD013A1AD7362700262364 /* ProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FD01391AD7362700262364 /* ProfileTableViewController.m */; };
+		83FD013A1AD7362700262364 /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FD01391AD7362700262364 /* AccountTableViewController.m */; };
 		83FD013C1AE4D10800262364 /* Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FD013B1AE4D10800262364 /* Profile.png */; };
 		83FD01411AE4D11E00262364 /* Profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FD013E1AE4D11E00262364 /* Profile@2x.png */; };
 		83FD01421AE4D11E00262364 /* Profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FD01401AE4D11E00262364 /* Profile@3x.png */; };
@@ -51,8 +51,8 @@
 		83EDFA981AC75BFF0013FD71 /* BookingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingViewController.h; sourceTree = "<group>"; };
 		83EDFA991AC75BFF0013FD71 /* BookingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingViewController.m; sourceTree = "<group>"; };
 		83EDFA9C1AC75BFF0013FD71 /* HanaHaus-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HanaHaus-Prefix.pch"; sourceTree = "<group>"; };
-		83FD01381AD7362700262364 /* ProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewController.h; sourceTree = "<group>"; };
-		83FD01391AD7362700262364 /* ProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewController.m; sourceTree = "<group>"; };
+		83FD01381AD7362700262364 /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
+		83FD01391AD7362700262364 /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
 		83FD013B1AE4D10800262364 /* Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Profile.png; sourceTree = "<group>"; };
 		83FD013E1AE4D11E00262364 /* Profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Profile@2x.png"; sourceTree = "<group>"; };
 		83FD01401AE4D11E00262364 /* Profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Profile@3x.png"; sourceTree = "<group>"; };
@@ -143,10 +143,10 @@
 			children = (
 				83EDFA981AC75BFF0013FD71 /* BookingViewController.h */,
 				83EDFA991AC75BFF0013FD71 /* BookingViewController.m */,
+				83FD01381AD7362700262364 /* AccountTableViewController.h */,
+				83FD01391AD7362700262364 /* AccountTableViewController.m */,
 				839BF9531ACDF5FF00A8C370 /* BookingTypeTableViewController.h */,
 				839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */,
-				83FD01381AD7362700262364 /* ProfileTableViewController.h */,
-				83FD01391AD7362700262364 /* ProfileTableViewController.m */,
 				83A5682B1ACE07B000D541A8 /* ConfirmViewController.h */,
 				83A5682C1ACE07B000D541A8 /* ConfirmViewController.m */,
 			);
@@ -275,7 +275,7 @@
 				83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */,
 				839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */,
 				83A568301ACE174600D541A8 /* UIButton+ActivityIndicatorView.m in Sources */,
-				83FD013A1AD7362700262364 /* ProfileTableViewController.m in Sources */,
+				83FD013A1AD7362700262364 /* AccountTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

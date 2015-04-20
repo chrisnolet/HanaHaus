@@ -1,5 +1,5 @@
 //
-//  ProfileTableViewController.h
+//  AccountTableViewController.h
 //  HanaHaus
 //
 //  Created by Chris Nolet on 4/9/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileTableViewController : UITableViewController
+@interface AccountTableViewController : UITableViewController
 
 - (IBAction)cancelBarButtonItemPressed:(id)sender;
 - (IBAction)doneBarButtonItemPressed:(id)sender;

@@ -209,7 +209,7 @@
         <!--Account-->
         <scene sceneID="UOM-yd-n2d">
             <objects>
-                <tableViewController id="XRc-qW-dWL" customClass="ProfileTableViewController" sceneMemberID="viewController">
+                <tableViewController id="XRc-qW-dWL" customClass="AccountTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="54" sectionHeaderHeight="10" sectionFooterHeight="10" id="FIu-k8-FPQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -352,10 +352,15 @@
                                 <action selector="cancelBarButtonItemPressed:" destination="XRc-qW-dWL" id="pMo-sC-pb5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="57o-dw-GJN"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="57o-dw-GJN">
+                            <connections>
+                                <segue destination="VcO-c2-6XG" kind="unwind" identifier="UnwindFromAccountSegue" unwindAction="unwindFromAccount:" id="3Un-mR-G4N"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8lS-mx-7Ae" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="VcO-c2-6XG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1755" y="-615"/>
         </scene>

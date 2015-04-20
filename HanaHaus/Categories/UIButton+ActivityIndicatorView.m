@@ -28,8 +28,8 @@ static void *ActivityIndicatorViewKey = &ActivityIndicatorViewKey;
     [self addSubview:activityIndicatorView];
 
     // Disable button and hide text
+    [self setTitle:@"" forState:UIControlStateDisabled];
     self.enabled = NO;
-    self.titleLabel.alpha = 0;
 
     // Save reference to the activity indicator
     objc_setAssociatedObject(self, ActivityIndicatorViewKey, activityIndicatorView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -45,7 +45,6 @@ static void *ActivityIndicatorViewKey = &ActivityIndicatorViewKey;
 
     // Re-enable button and show text
     self.enabled = YES;
-    self.titleLabel.alpha = 1;
 }
 
 @end
