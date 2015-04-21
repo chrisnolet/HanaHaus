@@ -35,10 +35,6 @@
                                                  name:UIApplicationWillChangeStatusBarFrameNotification
                                                object:nil];
 
-    // Remove navigation bar shadow
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-
     // Add header view
     self.headerView = [[[UINib nibWithNibName:@"Header" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
 
