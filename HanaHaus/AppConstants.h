@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
-extern NSString * const kExampleString;
-
-extern NSInteger const kExampleInteger;
+extern NSString * const kUserDefaultsAccountName;
+extern NSString * const kUserDefaultsAccountEmail;
+extern NSString * const kUserDefaultsAccountPhone;
+extern NSString * const kUserDefaultsAccountZip;

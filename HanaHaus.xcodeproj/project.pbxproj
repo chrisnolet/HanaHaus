@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		833AEC451AE722EF00089E4B /* EditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 833AEC441AE722EF00089E4B /* EditCell.m */; };
 		835227ED1ACD0E8D00B42DD2 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835227EC1ACD0E8D00B42DD2 /* Header.xib */; };
 		839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */; };
 		839BF9571ACE02D100A8C370 /* Logo-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 839BF9561ACE02D100A8C370 /* Logo-Black.png */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		833AEC431AE722EF00089E4B /* EditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCell.h; sourceTree = "<group>"; };
+		833AEC441AE722EF00089E4B /* EditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCell.m; sourceTree = "<group>"; };
 		835227EC1ACD0E8D00B42DD2 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 		839BF9531ACDF5FF00A8C370 /* BookingTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingTypeTableViewController.h; sourceTree = "<group>"; };
 		839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingTypeTableViewController.m; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				835227EC1ACD0E8D00B42DD2 /* Header.xib */,
+				833AEC431AE722EF00089E4B /* EditCell.h */,
+				833AEC441AE722EF00089E4B /* EditCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */,
 				839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */,
 				83A568301ACE174600D541A8 /* UIButton+ActivityIndicatorView.m in Sources */,
+				833AEC451AE722EF00089E4B /* EditCell.m in Sources */,
 				83FD013A1AD7362700262364 /* AccountTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

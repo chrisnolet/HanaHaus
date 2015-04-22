@@ -8,6 +8,7 @@
 
 #import "AppConstants.h"
 
-NSString * const kExampleString = @"Example";
-
-NSInteger const kExampleInteger = 0;
+NSString * const kUserDefaultsAccountName = @"Name";
+NSString * const kUserDefaultsAccountEmail = @"Email";
+NSString * const kUserDefaultsAccountPhone = @"Phone";
+NSString * const kUserDefaultsAccountZip = @"Zip";
