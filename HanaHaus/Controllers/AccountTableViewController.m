@@ -9,6 +9,12 @@
 #import "AccountTableViewController.h"
 #import "EditCell.h"
 
+@interface AccountTableViewController ()
+
+- (NSString *)validate;
+
+@end
+
 @implementation AccountTableViewController
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,7 +33,7 @@
 {
     [super viewWillAppear:animated];
 
-    // Display saved account details
+    // Recall account details
     self.nameTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountName];
     self.emailTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountEmail];
     self.phoneTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountPhone];
@@ -64,11 +70,9 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
-    if ([[tableView cellForRowAtIndexPath:indexPath] isKindOfClass:[EditCell class]]) {
+    if ([cell isKindOfClass:[EditCell class]]) {
         EditCell *editCell = (EditCell *)cell;
         [editCell.textField becomeFirstResponder];
-    } else {
-        [self.view endEditing:NO];
     }
 }
 
@@ -114,7 +118,32 @@
     [[NSUserDefaults standardUserDefaults] setObject:self.zipTextField.text forKey:kUserDefaultsAccountZip];
 
     // Dismiss modal
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self performSegueWithIdentifier:@"UnwindFromAccountSegue" sender:nil];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Private methods
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSString *)validate
+{
+    if ([self.nameTextField.text length] == 0) {
+        return @"Name required";
+    }
+
+    if ([self.emailTextField.text length] == 0) {
+        return @"Email required";
+    }
+
+    if ([self.phoneTextField.text length] == 0) {
+        return @"Phone required";
+    }
+
+    if ([self.zipTextField.text length] == 0) {
+        return @"Zip required";
+    }
+
+    return nil;
 }
 
 @end
