@@ -96,8 +96,8 @@
 {
     [self.confirmButton startAnimating];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self.navigationController popViewControllerAnimated:YES];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
     });
 
 //    NSURL *url;
