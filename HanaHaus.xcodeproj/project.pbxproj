@@ -10,6 +10,7 @@
 		833AEC451AE722EF00089E4B /* EditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 833AEC441AE722EF00089E4B /* EditCell.m */; };
 		835227ED1ACD0E8D00B42DD2 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835227EC1ACD0E8D00B42DD2 /* Header.xib */; };
 		83936F121AE9B09300897EDB /* CompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83936F111AE9B09300897EDB /* CompleteViewController.m */; };
+		83936F191AEAD43100897EDB /* NSString+Plural.m in Sources */ = {isa = PBXBuildFile; fileRef = 83936F181AEAD43100897EDB /* NSString+Plural.m */; };
 		839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */; };
 		839BF9571ACE02D100A8C370 /* Logo-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 839BF9561ACE02D100A8C370 /* Logo-Black.png */; };
 		83A5682D1ACE07B000D541A8 /* ConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5682C1ACE07B000D541A8 /* ConfirmViewController.m */; };
@@ -35,6 +36,8 @@
 		835227EC1ACD0E8D00B42DD2 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 		83936F101AE9B09300897EDB /* CompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteViewController.h; sourceTree = "<group>"; };
 		83936F111AE9B09300897EDB /* CompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteViewController.m; sourceTree = "<group>"; };
+		83936F171AEAD43100897EDB /* NSString+Plural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Plural.h"; sourceTree = "<group>"; };
+		83936F181AEAD43100897EDB /* NSString+Plural.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Plural.m"; sourceTree = "<group>"; };
 		839BF9531ACDF5FF00A8C370 /* BookingTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingTypeTableViewController.h; sourceTree = "<group>"; };
 		839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingTypeTableViewController.m; sourceTree = "<group>"; };
 		839BF9561ACE02D100A8C370 /* Logo-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-Black.png"; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 			children = (
 				83A5682E1ACE174600D541A8 /* UIButton+ActivityIndicatorView.h */,
 				83A5682F1ACE174600D541A8 /* UIButton+ActivityIndicatorView.m */,
+				83936F171AEAD43100897EDB /* NSString+Plural.h */,
+				83936F181AEAD43100897EDB /* NSString+Plural.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83936F191AEAD43100897EDB /* NSString+Plural.m in Sources */,
 				83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */,
 				83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */,
 				83EDFA6C1AC75AE80013FD71 /* main.m in Sources */,

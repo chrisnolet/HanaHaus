@@ -105,6 +105,17 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)doneBarButtonItemPressed:(id)sender
 {
+    // Validate input
+    NSString *error = [self validate];
+
+    // TODO(CN): Display error on SVProgressHUD
+    if (error) {
+//        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
+//        [SVProgressHUD showErrorWithStatus:error];
+//
+//        return;
+    }
+
     // Save account details
     [[NSUserDefaults standardUserDefaults] setObject:self.nameTextField.text forKey:kUserDefaultsAccountName];
     [[NSUserDefaults standardUserDefaults] setObject:self.emailTextField.text forKey:kUserDefaultsAccountEmail];

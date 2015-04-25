@@ -16,10 +16,11 @@
 @property (strong, nonatomic) IBOutlet UIStepper *numberOfPeopleStepper;
 @property (strong, nonatomic) IBOutlet UIStepper *hoursStepper;
 
-- (IBAction)unwindFromAccount:(UIStoryboardSegue *)unwindSegue;
-- (IBAction)unwindFromBookingType:(UIStoryboardSegue *)unwindSegue;
 - (IBAction)stepperValueDidChange:(id)sender;
+- (IBAction)datePickerValueDidChange:(id)sender;
 - (IBAction)accountButtonPressed:(id)sender;
 - (IBAction)continueButtonPressed:(id)sender;
+- (IBAction)unwindFromAccount:(UIStoryboardSegue *)unwindSegue;
+- (IBAction)unwindFromBookingType:(UIStoryboardSegue *)unwindSegue;
 
 @end
