@@ -9,6 +9,7 @@
 #import "BookingViewController.h"
 #import "BookingTypeTableViewController.h"
 #import "ConfirmViewController.h"
+#import "NSString+Plural.h"
 
 @interface BookingViewController ()
 
@@ -119,8 +120,10 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)stepperValueDidChange:(id)sender
 {
-    self.numberOfPeopleLabel.text = [NSString stringWithFormat:@"%.0f", self.numberOfPeopleStepper.value];
-    self.hoursLabel.text = [NSString stringWithFormat:@"%.0f", self.hoursStepper.value];
+    self.numberOfPeopleLabel.text = [NSString stringWithInteger:self.numberOfPeopleStepper.value
+                                                   singularTerm:@"Person"
+                                                     pluralTerm:@"People"];
+    self.hoursLabel.text = [NSString stringWithInteger:self.hoursStepper.value singularTerm:@"Hour" pluralTerm:@"Hours"];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

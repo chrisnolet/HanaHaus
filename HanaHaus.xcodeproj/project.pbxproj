@@ -141,10 +141,10 @@
 		83EDFA961AC75BFF0013FD71 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				83A5682E1ACE174600D541A8 /* UIButton+ActivityIndicatorView.h */,
-				83A5682F1ACE174600D541A8 /* UIButton+ActivityIndicatorView.m */,
 				83936F171AEAD43100897EDB /* NSString+Plural.h */,
 				83936F181AEAD43100897EDB /* NSString+Plural.m */,
+				83A5682E1ACE174600D541A8 /* UIButton+ActivityIndicatorView.h */,
+				83A5682F1ACE174600D541A8 /* UIButton+ActivityIndicatorView.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";

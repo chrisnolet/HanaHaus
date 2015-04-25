@@ -7,13 +7,11 @@
 //
 
 #import "ConfirmViewController.h"
+#import "NSString+Plural.h"
 #import "UIButton+ActivityIndicatorView.h"
 
 @interface ConfirmViewController ()
 
-- (NSString *)bookingTypeText;
-- (NSString *)numberOfPeopleText;
-- (NSString *)hoursText;
 - (void)setText:(NSString *)text;
 
 @end
@@ -29,9 +27,10 @@
     [super viewDidLoad];
     
     // Set detail text
-    NSString *format = NSLocalizedString(@"You are about to book a %@ for %@, for %@.", nil);
-
-    self.text = [NSString stringWithFormat:format, self.bookingTypeText, self.numberOfPeopleText, self.hoursText];
+    self.text = [NSString stringWithFormat:@"You are about to book a %@ for %@, for %@.",
+                 @"Single Seat",
+                 [NSString stringWithInteger:self.numberOfPeople singularTerm:@"person" pluralTerm:@"people"],
+                 [NSString stringWithInteger:self.hours singularTerm:@"hour" pluralTerm:@"hours"]];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,32 +49,6 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private methods
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString *)bookingTypeText
-{
-    return @"Single Seat";
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString *)numberOfPeopleText
-{
-    if (self.numberOfPeople == 1) {
-        return @"1 person";
-    } else {
-        return [NSString stringWithFormat:@"%ld people", self.numberOfPeople];
-    }
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString *)hoursText
-{
-    if (self.hours == 1) {
-        return @"1 hour";
-    } else {
-        return [NSString stringWithFormat:@"%ld hours", self.hours];
-    }
-}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setText:(NSString *)text

@@ -75,16 +75,10 @@
                                                         <action selector="stepperValueDidChange:" destination="IQk-MY-Ndw" eventType="valueChanged" id="RBW-bI-JlB"/>
                                                     </connections>
                                                 </stepper>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of People" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2F4-bb-3WH">
-                                                    <rect key="frame" x="15" y="17" width="132" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Person" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2F4-bb-3WH">
+                                                    <rect key="frame" x="15" y="17" width="65" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fef-AK-uim">
-                                                    <rect key="frame" x="182" y="17" width="10" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -93,8 +87,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="qhn-4G-Ifc" secondAttribute="trailing" constant="16" id="AEG-UD-h7C"/>
                                                 <constraint firstAttribute="centerY" secondItem="qhn-4G-Ifc" secondAttribute="centerY" id="D4R-GR-7is"/>
                                                 <constraint firstAttribute="centerY" secondItem="2F4-bb-3WH" secondAttribute="centerY" id="Iqd-n5-6Q6"/>
-                                                <constraint firstAttribute="centerY" secondItem="Fef-AK-uim" secondAttribute="centerY" id="ZGj-OH-ajt"/>
-                                                <constraint firstItem="qhn-4G-Ifc" firstAttribute="leading" secondItem="Fef-AK-uim" secondAttribute="trailing" constant="18" id="r9v-lc-d6T"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -110,24 +102,16 @@
                                                         <action selector="stepperValueDidChange:" destination="IQk-MY-Ndw" eventType="valueChanged" id="S10-Ip-5kW"/>
                                                     </connections>
                                                 </stepper>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5F-eL-wfr">
-                                                    <rect key="frame" x="15" y="17" width="44" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5F-eL-wfr">
+                                                    <rect key="frame" x="15" y="17" width="49" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3J-67-6dT">
-                                                    <rect key="frame" x="182" y="17" width="10" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="i5F-eL-wfr" firstAttribute="leading" secondItem="JV8-20-O7s" secondAttribute="leading" constant="15" id="3U5-f0-neW"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZAw-XN-bnn" secondAttribute="trailing" constant="16" id="GHu-Lr-4Nj"/>
-                                                <constraint firstAttribute="centerY" secondItem="V3J-67-6dT" secondAttribute="centerY" id="bA9-Mu-C5N"/>
-                                                <constraint firstItem="ZAw-XN-bnn" firstAttribute="leading" secondItem="V3J-67-6dT" secondAttribute="trailing" constant="18" id="fM3-Yn-CfB"/>
                                                 <constraint firstAttribute="centerY" secondItem="i5F-eL-wfr" secondAttribute="centerY" id="lyG-lA-igD"/>
                                                 <constraint firstAttribute="centerY" secondItem="ZAw-XN-bnn" secondAttribute="centerY" id="qcb-mk-org"/>
                                             </constraints>
@@ -176,9 +160,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bookingTypeCell" destination="2Vj-yq-9at" id="81B-AW-gsb"/>
-                        <outlet property="hoursLabel" destination="V3J-67-6dT" id="TNL-DH-tSN"/>
+                        <outlet property="hoursLabel" destination="i5F-eL-wfr" id="WVu-i7-vcN"/>
                         <outlet property="hoursStepper" destination="ZAw-XN-bnn" id="oHQ-Df-sdZ"/>
-                        <outlet property="numberOfPeopleLabel" destination="Fef-AK-uim" id="Lvw-vw-oSU"/>
+                        <outlet property="numberOfPeopleLabel" destination="2F4-bb-3WH" id="4Ac-QQ-6Y9"/>
                         <outlet property="numberOfPeopleStepper" destination="qhn-4G-Ifc" id="ZKP-4d-FKh"/>
                         <segue destination="58L-GJ-RYr" kind="show" identifier="ConfirmSegue" id="fsH-lE-875"/>
                         <segue destination="igH-NI-VnV" kind="presentation" identifier="AccountSegue" id="wpS-l3-LaF"/>
