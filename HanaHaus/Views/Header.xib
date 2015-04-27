@@ -56,7 +56,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Logo.png" width="105" height="105"/>
+        <image name="Logo.png" width="110" height="110"/>
         <image name="Profile.png" width="44" height="44"/>
     </resources>
 </document>

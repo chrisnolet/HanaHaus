@@ -392,7 +392,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO9-ie-V6W">
-                                <rect key="frame" x="20" y="175" width="280" height="45"/>
+                                <rect key="frame" x="20" y="180" width="280" height="45"/>
                                 <attributedString key="attributedText">
                                     <fragment content="You are about to book a Single Seat for 1 person, for 1 hour.">
                                         <attributes>
@@ -405,10 +405,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-Black.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gwn-ih-EiZ">
-                                <rect key="frame" x="108" y="40" width="105" height="105"/>
+                                <rect key="frame" x="105" y="40" width="110" height="110"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2i-iS-wSC">
-                                <rect key="frame" x="20" y="250" width="280" height="50"/>
+                                <rect key="frame" x="20" y="255" width="280" height="50"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.3803921569" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="iyF-zX-YYO"/>
@@ -560,7 +560,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqy-ZT-ncB">
-                                <rect key="frame" x="20" y="175" width="280" height="68"/>
+                                <rect key="frame" x="20" y="180" width="280" height="68"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Your booking has been confirmed. Please pay at the desk when you arrive.">
                                         <attributes>
@@ -573,10 +573,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo-Black.png" translatesAutoresizingMaskIntoConstraints="NO" id="2on-8z-FLV">
-                                <rect key="frame" x="108" y="40" width="105" height="105"/>
+                                <rect key="frame" x="105" y="40" width="110" height="110"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FP-fc-9lZ">
-                                <rect key="frame" x="20" y="273" width="280" height="50"/>
+                                <rect key="frame" x="20" y="278" width="280" height="50"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.3803921569" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="UIt-C0-yI1"/>
@@ -612,6 +612,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo-Black.png" width="105" height="105"/>
+        <image name="Logo-Black.png" width="110" height="110"/>
     </resources>
 </document>
