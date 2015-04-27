@@ -9,6 +9,7 @@
 #import "BookingViewController.h"
 #import "BookingTypeTableViewController.h"
 #import "ConfirmViewController.h"
+#import "NSDate+BeginningOfDay.h"
 #import "NSString+Plural.h"
 
 @interface BookingViewController ()
@@ -46,6 +47,9 @@
 
     self.headerView.frame = frame;
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
+
+    // Only permit bookings for today onwards
+    self.datePicker.minimumDate = [NSDate beginningOfDay];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

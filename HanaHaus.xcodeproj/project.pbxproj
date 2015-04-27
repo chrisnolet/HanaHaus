@@ -17,6 +17,7 @@
 		83420E1A1AEDE86E00697997 /* Logo-Black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83420E171AEDE86E00697997 /* Logo-Black@3x.png */; };
 		83420E1B1AEDE86E00697997 /* Logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83420E181AEDE86E00697997 /* Logo@3x.png */; };
 		83420E1C1AEDE86E00697997 /* Profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83420E191AEDE86E00697997 /* Profile@3x.png */; };
+		83420E201AEDF67300697997 /* NSDate+BeginningOfDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 83420E1F1AEDF67300697997 /* NSDate+BeginningOfDay.m */; };
 		835227ED1ACD0E8D00B42DD2 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835227EC1ACD0E8D00B42DD2 /* Header.xib */; };
 		83936F121AE9B09300897EDB /* CompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83936F111AE9B09300897EDB /* CompleteViewController.m */; };
 		83936F191AEAD43100897EDB /* NSString+Plural.m in Sources */ = {isa = PBXBuildFile; fileRef = 83936F181AEAD43100897EDB /* NSString+Plural.m */; };
@@ -45,6 +46,8 @@
 		83420E171AEDE86E00697997 /* Logo-Black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Logo-Black@3x.png"; path = "Assets@3x/Logo-Black@3x.png"; sourceTree = "<group>"; };
 		83420E181AEDE86E00697997 /* Logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Logo@3x.png"; path = "Assets@3x/Logo@3x.png"; sourceTree = "<group>"; };
 		83420E191AEDE86E00697997 /* Profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Profile@3x.png"; path = "Assets@3x/Profile@3x.png"; sourceTree = "<group>"; };
+		83420E1E1AEDF67300697997 /* NSDate+BeginningOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BeginningOfDay.h"; sourceTree = "<group>"; };
+		83420E1F1AEDF67300697997 /* NSDate+BeginningOfDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BeginningOfDay.m"; sourceTree = "<group>"; };
 		835227EC1ACD0E8D00B42DD2 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 		83936F101AE9B09300897EDB /* CompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteViewController.h; sourceTree = "<group>"; };
 		83936F111AE9B09300897EDB /* CompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteViewController.m; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 		83EDFA961AC75BFF0013FD71 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				83420E1E1AEDF67300697997 /* NSDate+BeginningOfDay.h */,
+				83420E1F1AEDF67300697997 /* NSDate+BeginningOfDay.m */,
 				83936F171AEAD43100897EDB /* NSString+Plural.h */,
 				83936F181AEAD43100897EDB /* NSString+Plural.m */,
 				83A5682E1ACE174600D541A8 /* UIButton+ActivityIndicatorView.h */,
@@ -295,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83420E201AEDF67300697997 /* NSDate+BeginningOfDay.m in Sources */,
 				83936F191AEAD43100897EDB /* NSString+Plural.m in Sources */,
 				83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */,
 				83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */,
