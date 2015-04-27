@@ -11,12 +11,12 @@
 		835227ED1ACD0E8D00B42DD2 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835227EC1ACD0E8D00B42DD2 /* Header.xib */; };
 		83936F121AE9B09300897EDB /* CompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83936F111AE9B09300897EDB /* CompleteViewController.m */; };
 		83936F191AEAD43100897EDB /* NSString+Plural.m in Sources */ = {isa = PBXBuildFile; fileRef = 83936F181AEAD43100897EDB /* NSString+Plural.m */; };
+		83936F1D1AEDE30300897EDB /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 83936F1A1AEDE30300897EDB /* Assets */; };
+		83936F1E1AEDE30300897EDB /* Assets@2x in Resources */ = {isa = PBXBuildFile; fileRef = 83936F1B1AEDE30300897EDB /* Assets@2x */; };
+		83936F1F1AEDE30300897EDB /* Assets@3x in Resources */ = {isa = PBXBuildFile; fileRef = 83936F1C1AEDE30300897EDB /* Assets@3x */; };
 		839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */; };
-		839BF9571ACE02D100A8C370 /* Logo-Black.png in Resources */ = {isa = PBXBuildFile; fileRef = 839BF9561ACE02D100A8C370 /* Logo-Black.png */; };
 		83A5682D1ACE07B000D541A8 /* ConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5682C1ACE07B000D541A8 /* ConfirmViewController.m */; };
 		83A568301ACE174600D541A8 /* UIButton+ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5682F1ACE174600D541A8 /* UIButton+ActivityIndicatorView.m */; };
-		83EB08871ACB3ACC009B2A26 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EB08851ACB3ACC009B2A26 /* Logo.png */; };
-		83EB08881ACB3ACC009B2A26 /* Title.png in Resources */ = {isa = PBXBuildFile; fileRef = 83EB08861ACB3ACC009B2A26 /* Title.png */; };
 		83EDFA6C1AC75AE80013FD71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA6B1AC75AE80013FD71 /* main.m */; };
 		83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA6E1AC75AE80013FD71 /* AppDelegate.m */; };
 		83EDFA781AC75AE80013FD71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EDFA761AC75AE80013FD71 /* Main.storyboard */; };
@@ -25,9 +25,6 @@
 		83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA931AC75BFF0013FD71 /* AppConstants.m */; };
 		83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA991AC75BFF0013FD71 /* BookingViewController.m */; };
 		83FD013A1AD7362700262364 /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FD01391AD7362700262364 /* AccountTableViewController.m */; };
-		83FD013C1AE4D10800262364 /* Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FD013B1AE4D10800262364 /* Profile.png */; };
-		83FD01411AE4D11E00262364 /* Profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FD013E1AE4D11E00262364 /* Profile@2x.png */; };
-		83FD01421AE4D11E00262364 /* Profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83FD01401AE4D11E00262364 /* Profile@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,15 +35,15 @@
 		83936F111AE9B09300897EDB /* CompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteViewController.m; sourceTree = "<group>"; };
 		83936F171AEAD43100897EDB /* NSString+Plural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Plural.h"; sourceTree = "<group>"; };
 		83936F181AEAD43100897EDB /* NSString+Plural.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Plural.m"; sourceTree = "<group>"; };
+		83936F1A1AEDE30300897EDB /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		83936F1B1AEDE30300897EDB /* Assets@2x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Assets@2x"; sourceTree = "<group>"; };
+		83936F1C1AEDE30300897EDB /* Assets@3x */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Assets@3x"; sourceTree = "<group>"; };
 		839BF9531ACDF5FF00A8C370 /* BookingTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingTypeTableViewController.h; sourceTree = "<group>"; };
 		839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingTypeTableViewController.m; sourceTree = "<group>"; };
-		839BF9561ACE02D100A8C370 /* Logo-Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo-Black.png"; sourceTree = "<group>"; };
 		83A5682B1ACE07B000D541A8 /* ConfirmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmViewController.h; sourceTree = "<group>"; };
 		83A5682C1ACE07B000D541A8 /* ConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmViewController.m; sourceTree = "<group>"; };
 		83A5682E1ACE174600D541A8 /* UIButton+ActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ActivityIndicatorView.h"; sourceTree = "<group>"; };
 		83A5682F1ACE174600D541A8 /* UIButton+ActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ActivityIndicatorView.m"; sourceTree = "<group>"; };
-		83EB08851ACB3ACC009B2A26 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
-		83EB08861ACB3ACC009B2A26 /* Title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Title.png; sourceTree = "<group>"; };
 		83EDFA661AC75AE70013FD71 /* HanaHaus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanaHaus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EDFA6A1AC75AE80013FD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83EDFA6B1AC75AE80013FD71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -62,9 +59,6 @@
 		83EDFA9C1AC75BFF0013FD71 /* HanaHaus-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HanaHaus-Prefix.pch"; sourceTree = "<group>"; };
 		83FD01381AD7362700262364 /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
 		83FD01391AD7362700262364 /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
-		83FD013B1AE4D10800262364 /* Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Profile.png; sourceTree = "<group>"; };
-		83FD013E1AE4D11E00262364 /* Profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Profile@2x.png"; sourceTree = "<group>"; };
-		83FD01401AE4D11E00262364 /* Profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Profile@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,17 +72,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		83EB08841ACB3ACC009B2A26 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				839BF9561ACE02D100A8C370 /* Logo-Black.png */,
-				83EB08851ACB3ACC009B2A26 /* Logo.png */,
-				83FD013B1AE4D10800262364 /* Profile.png */,
-				83EB08861ACB3ACC009B2A26 /* Title.png */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
 		83EDFA5D1AC75AE70013FD71 = {
 			isa = PBXGroup;
 			children = (
@@ -118,9 +101,9 @@
 				83EDFA9F1AC75BFF0013FD71 /* Views */,
 				83EDFA961AC75BFF0013FD71 /* Categories */,
 				83EDFA9E1AC75BFF0013FD71 /* Segues */,
-				83EB08841ACB3ACC009B2A26 /* Assets */,
-				83FD013D1AE4D11E00262364 /* Assets@2x */,
-				83FD013F1AE4D11E00262364 /* Assets@3x */,
+				83936F1A1AEDE30300897EDB /* Assets */,
+				83936F1B1AEDE30300897EDB /* Assets@2x */,
+				83936F1C1AEDE30300897EDB /* Assets@3x */,
 				83EDFA791AC75AE80013FD71 /* Images.xcassets */,
 				83EDFA7B1AC75AE80013FD71 /* LaunchScreen.xib */,
 				83EDFA691AC75AE80013FD71 /* Supporting Files */,
@@ -190,22 +173,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		83FD013D1AE4D11E00262364 /* Assets@2x */ = {
-			isa = PBXGroup;
-			children = (
-				83FD013E1AE4D11E00262364 /* Profile@2x.png */,
-			);
-			path = "Assets@2x";
-			sourceTree = "<group>";
-		};
-		83FD013F1AE4D11E00262364 /* Assets@3x */ = {
-			isa = PBXGroup;
-			children = (
-				83FD01401AE4D11E00262364 /* Profile@3x.png */,
-			);
-			path = "Assets@3x";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,16 +230,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83FD01411AE4D11E00262364 /* Profile@2x.png in Resources */,
-				83EB08871ACB3ACC009B2A26 /* Logo.png in Resources */,
-				83EB08881ACB3ACC009B2A26 /* Title.png in Resources */,
+				83936F1D1AEDE30300897EDB /* Assets in Resources */,
 				83EDFA781AC75AE80013FD71 /* Main.storyboard in Resources */,
+				83936F1F1AEDE30300897EDB /* Assets@3x in Resources */,
+				83936F1E1AEDE30300897EDB /* Assets@2x in Resources */,
 				83EDFA7D1AC75AE80013FD71 /* LaunchScreen.xib in Resources */,
 				835227ED1ACD0E8D00B42DD2 /* Header.xib in Resources */,
 				83EDFA7A1AC75AE80013FD71 /* Images.xcassets in Resources */,
-				839BF9571ACE02D100A8C370 /* Logo-Black.png in Resources */,
-				83FD013C1AE4D10800262364 /* Profile.png in Resources */,
-				83FD01421AE4D11E00262364 /* Profile@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
