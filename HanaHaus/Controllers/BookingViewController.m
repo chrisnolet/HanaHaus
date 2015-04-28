@@ -16,8 +16,10 @@
 
 @property (strong, nonatomic) UIView *headerView;
 @property (nonatomic, assign) NSInteger bookingTypeIndex;
+@property (nonatomic, assign) BOOL showDatePicker;
 
 - (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification;
+- (void)toggleDatePicker;
 
 @end
 
@@ -92,6 +94,30 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - UITableViewDelegate
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    [tableView indexPathForCell:self.datePickerCell];
+
+    if (!self.showDatePicker && indexPath.row == 4) {
+        return 0;
+    }
+
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+    if ([cell isEqual:self.startCell]) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+        [self toggleDatePicker];
+    }
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -169,6 +195,23 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self scrollViewDidScroll:self.tableView];
     });
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)toggleDatePicker
+{
+    self.showDatePicker = !self.showDatePicker;
+
+    [self.tableView beginUpdates];
+    [self.tableView reloadData];
+    [self.tableView endUpdates];
+
+//    [self scrollViewDidScroll:self.tableView];
+    if (self.showDatePicker) {
+        [self.tableView setContentOffset:CGPointMake(0, 80) animated:YES];
+    } else {
+        [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
 }
 
 @end

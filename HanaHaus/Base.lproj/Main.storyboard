@@ -117,7 +117,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="pCS-jj-1T4" detailTextLabel="lfw-Ws-hs2" style="IBUITableViewCellStyleValue1" id="efY-PA-djq">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="pCS-jj-1T4" detailTextLabel="lfw-Ws-hs2" style="IBUITableViewCellStyleValue1" id="efY-PA-djq">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efY-PA-djq" id="w5i-AT-z2c">
@@ -138,7 +138,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="162" id="X24-kQ-YMy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="162" id="X24-kQ-YMy">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X24-kQ-YMy" id="tjU-G7-yhE">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -204,6 +204,7 @@
                         <outlet property="hoursStepper" destination="ZAw-XN-bnn" id="oHQ-Df-sdZ"/>
                         <outlet property="numberOfPeopleLabel" destination="2F4-bb-3WH" id="4Ac-QQ-6Y9"/>
                         <outlet property="numberOfPeopleStepper" destination="qhn-4G-Ifc" id="ZKP-4d-FKh"/>
+                        <outlet property="startCell" destination="efY-PA-djq" id="lfm-ow-7iW"/>
                         <segue destination="58L-GJ-RYr" kind="show" identifier="ConfirmSegue" id="fsH-lE-875"/>
                         <segue destination="igH-NI-VnV" kind="presentation" identifier="AccountSegue" id="wpS-l3-LaF"/>
                     </connections>
