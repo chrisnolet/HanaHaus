@@ -202,16 +202,24 @@
 {
     self.showDatePicker = !self.showDatePicker;
 
-    [self.tableView beginUpdates];
-    [self.tableView reloadData];
-    [self.tableView endUpdates];
+    [UIView animateWithDuration:0.5
+                          delay:0
+         usingSpringWithDamping:1
+          initialSpringVelocity:1
+                        options:0
+                     animations:^{
+        [self.tableView beginUpdates];
+        [self.tableView reloadData];
+        [self.tableView endUpdates];
 
-//    [self scrollViewDidScroll:self.tableView];
-    if (self.showDatePicker) {
-        [self.tableView setContentOffset:CGPointMake(0, 80) animated:YES];
-    } else {
-        [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
-    }
+        if (self.showDatePicker) {
+            self.tableView.contentOffset = CGPointMake(0, 110);
+        } else {
+            [self scrollViewDidScroll:self.tableView];
+        }
+
+        [self.view layoutIfNeeded];
+    } completion:nil];
 }
 
 @end
