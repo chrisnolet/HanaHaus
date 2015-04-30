@@ -98,9 +98,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    [tableView indexPathForCell:self.datePickerCell];
-
-    if (!self.showDatePicker && indexPath.row == 4) {
+    if (!self.showDatePicker && indexPath.row == kTableViewDatePickerRow) {
         return 0;
     }
 

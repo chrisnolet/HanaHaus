@@ -126,7 +126,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Starts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pCS-jj-1T4">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Apr 21, 2015     9:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lfw-Ws-hs2">
@@ -199,7 +199,6 @@
                     <connections>
                         <outlet property="bookingTypeCell" destination="2Vj-yq-9at" id="81B-AW-gsb"/>
                         <outlet property="datePicker" destination="YKn-fw-UbR" id="XLm-iL-3h3"/>
-                        <outlet property="datePickerCell" destination="X24-kQ-YMy" id="OZz-Vc-B7J"/>
                         <outlet property="hoursLabel" destination="i5F-eL-wfr" id="WVu-i7-vcN"/>
                         <outlet property="hoursStepper" destination="ZAw-XN-bnn" id="oHQ-Df-sdZ"/>
                         <outlet property="numberOfPeopleLabel" destination="2F4-bb-3WH" id="4Ac-QQ-6Y9"/>
