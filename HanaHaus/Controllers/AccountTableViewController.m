@@ -102,17 +102,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)doneBarButtonItemPressed:(id)sender
 {
-    // Validate input
-    NSString *error = [self validate];
-
-    // TODO(CN): Display error on SVProgressHUD
-    if (error) {
-//        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
-//        [SVProgressHUD showErrorWithStatus:error];
-//
-//        return;
-    }
-
     // Save account details
     AccountManager *accountManager = [AccountManager sharedInstance];
 

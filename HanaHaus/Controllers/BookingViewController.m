@@ -9,6 +9,7 @@
 #import "BookingViewController.h"
 #import "BookingTypeTableViewController.h"
 #import "ConfirmViewController.h"
+#import "AccountManager.h"
 #import "NSDate+BeginningOfDay.h"
 #import "NSString+Plural.h"
 
@@ -21,6 +22,7 @@
 - (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification;
 - (void)toggleDatePicker;
 - (void)updateHeaderFrame;
+- (void)updateStartDate;
 
 @end
 
@@ -53,6 +55,9 @@
 
     // Limit booking times
     self.datePicker.minimumDate = [NSDate beginningOfDay];
+
+    // Show default date
+    [self updateStartDate];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -148,31 +153,19 @@
                                                        singularTerm:@"Person"
                                                          pluralTerm:@"People"];
 
-        self.numberOfPeopleLabel.textColor = [UIColor redColor];
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [UIView transitionWithView:self.numberOfPeopleLabel
-                              duration:1
-                               options:UIViewAnimationOptionTransitionCrossDissolve
-                            animations:^{
-                                self.numberOfPeopleLabel.textColor = [UIColor blackColor];
-                            } completion:nil];
-        });
+        [self indicateUpdateForLabel:self.numberOfPeopleLabel];
     }
     else if ([sender isEqual:self.hoursStepper]) {
         self.hoursLabel.text = [NSString stringWithInteger:self.hoursStepper.value singularTerm:@"Hour" pluralTerm:@"Hours"];
+
+        [self indicateUpdateForLabel:self.hoursLabel];
     }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)datePickerValueDidChange:(id)sender
 {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    dateFormatter.timeStyle = NSDateFormatterShortStyle;
-    dateFormatter.dateFormat = @"MMM d, y     h:mm a";
-
-    self.startCell.detailTextLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
+    [self updateStartDate];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -184,12 +177,22 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)continueButtonPressed:(id)sender
 {
-    [self performSegueWithIdentifier:@"ConfirmSegue" sender:nil];
+    if ([[AccountManager sharedInstance] validate]) {
+        [self performSegueWithIdentifier:@"AccountSegue" sender:nil];
+    } else {
+        [self performSegueWithIdentifier:@"ConfirmSegue" sender:nil];
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)unwindFromAccount:(UIStoryboardSegue *)unwindSegue
 {
+    // TODO(CN): Unwind is always triggered on profile/account done, so need to track if AccountSegue is from Continue or Account
+    if ([[AccountManager sharedInstance] validate] == nil) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSegueWithIdentifier:@"ConfirmSegue" sender:nil];
+        });
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -246,6 +249,20 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)indicateUpdateForLabel:(UILabel *)label
+{
+    // Show active color on label
+    label.textColor = [UIColor redColor];
+
+    // Fade to default color after a short delay
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [UIView transitionWithView:label duration:1 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            label.textColor = [UIColor blackColor];
+        } completion:nil];
+    });
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)updateHeaderFrame
 {
     // Pin the header view to the top of the table view
@@ -258,30 +275,14 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString *)validate
+- (void)updateStartDate
 {
-    NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountName];
-    NSString *email = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountEmail];
-    NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountPhone];
-    NSString *zip = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountZip];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    dateFormatter.timeStyle = NSDateFormatterShortStyle;
+    dateFormatter.dateFormat = @"MMM d, y     h:mm a";
 
-    if ([name length] == 0) {
-        return @"Name required";
-    }
-
-    if ([email length] == 0) {
-        return @"Email required";
-    }
-
-    if ([phone length] == 0) {
-        return @"Phone required";
-    }
-
-    if ([zip length] == 0) {
-        return @"Zip required";
-    }
-
-    return nil;
+    self.startCell.detailTextLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
 }
 
 @end
