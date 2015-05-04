@@ -8,12 +8,7 @@
 
 #import "AccountTableViewController.h"
 #import "EditCell.h"
-
-@interface AccountTableViewController ()
-
-- (NSString *)validate;
-
-@end
+#import "AccountManager.h"
 
 @implementation AccountTableViewController
 
@@ -34,10 +29,12 @@
     [super viewWillAppear:animated];
 
     // Recall account details
-    self.nameTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountName];
-    self.emailTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountEmail];
-    self.phoneTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountPhone];
-    self.zipTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountZip];
+    AccountManager *accountManager = [AccountManager sharedInstance];
+
+    self.nameTextField.text = accountManager.name;
+    self.emailTextField.text = accountManager.email;
+    self.phoneTextField.text = accountManager.phone;
+    self.zipTextField.text = accountManager.zip;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -117,38 +114,15 @@
     }
 
     // Save account details
-    [[NSUserDefaults standardUserDefaults] setObject:self.nameTextField.text forKey:kUserDefaultsAccountName];
-    [[NSUserDefaults standardUserDefaults] setObject:self.emailTextField.text forKey:kUserDefaultsAccountEmail];
-    [[NSUserDefaults standardUserDefaults] setObject:self.phoneTextField.text forKey:kUserDefaultsAccountPhone];
-    [[NSUserDefaults standardUserDefaults] setObject:self.zipTextField.text forKey:kUserDefaultsAccountZip];
+    AccountManager *accountManager = [AccountManager sharedInstance];
+
+    accountManager.name = self.nameTextField.text;
+    accountManager.email = self.emailTextField.text;
+    accountManager.phone = self.phoneTextField.text;
+    accountManager.zip = self.zipTextField.text;
 
     // Dismiss modal
     [self performSegueWithIdentifier:@"UnwindFromAccountSegue" sender:nil];
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - Private methods
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSString *)validate
-{
-    if ([self.nameTextField.text length] == 0) {
-        return @"Name required";
-    }
-
-    if ([self.emailTextField.text length] == 0) {
-        return @"Email required";
-    }
-
-    if ([self.phoneTextField.text length] == 0) {
-        return @"Phone required";
-    }
-
-    if ([self.zipTextField.text length] == 0) {
-        return @"Zip required";
-    }
-
-    return nil;
 }
 
 @end

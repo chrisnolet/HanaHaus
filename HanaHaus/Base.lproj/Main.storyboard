@@ -46,7 +46,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Vj-yq-9at" id="wBV-NR-Jz7">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Booking Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tto-V7-GEy">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Reservation Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tto-V7-GEy">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -132,7 +132,6 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Apr 21, 2015     9:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lfw-Ws-hs2">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -434,7 +433,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO9-ie-V6W">
                                 <rect key="frame" x="20" y="180" width="280" height="45"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="You are about to book a Single Seat for 1 person, for 1 hour.">
+                                    <fragment content="You are about to book a Single Seat for 1 person for 1 hour.">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
@@ -487,7 +486,7 @@
             </objects>
             <point key="canvasLocation" x="1310" y="64"/>
         </scene>
-        <!--Booking Type-->
+        <!--Reservation Type-->
         <scene sceneID="vbY-V2-mGz">
             <objects>
                 <tableViewController id="Lzc-pG-ndP" customClass="BookingTypeTableViewController" sceneMemberID="viewController">
@@ -577,7 +576,7 @@
                             <outlet property="delegate" destination="Lzc-pG-ndP" id="REe-04-dmc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Booking Type" id="oyK-7L-zxz"/>
+                    <navigationItem key="navigationItem" title="Reservation Type" id="oyK-7L-zxz"/>
                     <connections>
                         <segue destination="0lV-Gr-geC" kind="unwind" identifier="UnwindFromBookingTypeSegue" unwindAction="unwindFromBookingType:" id="i2C-56-nxI"/>
                     </connections>
@@ -587,7 +586,7 @@
             </objects>
             <point key="canvasLocation" x="788" y="754"/>
         </scene>
-        <!--Booking Complete-->
+        <!--Reservation Complete-->
         <scene sceneID="CgH-cG-b4Y">
             <objects>
                 <viewController id="TcU-tH-oWG" customClass="CompleteViewController" sceneMemberID="viewController">
@@ -602,7 +601,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqy-ZT-ncB">
                                 <rect key="frame" x="20" y="180" width="280" height="68"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Your booking has been confirmed. Please pay at the desk when you arrive.">
+                                    <fragment content="Your reservation has been confirmed. Please pay at the desk when you arrive.">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
@@ -644,7 +643,7 @@
                             <constraint firstAttribute="trailing" secondItem="qqy-ZT-ncB" secondAttribute="trailing" constant="20" id="buy-t0-wou"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Booking Complete" id="M5V-AB-cAe"/>
+                    <navigationItem key="navigationItem" title="Reservation Complete" id="M5V-AB-cAe"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDJ-PW-DN0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

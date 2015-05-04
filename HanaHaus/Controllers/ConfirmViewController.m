@@ -27,7 +27,7 @@
     [super viewDidLoad];
     
     // Set detail text
-    self.text = [NSString stringWithFormat:@"You are about to book a %@ for %@, for %@.",
+    self.text = [NSString stringWithFormat:@"You are about to book a %@ for %@ for %@.",
                  @"Single Seat",
                  [NSString stringWithInteger:self.numberOfPeople singularTerm:@"person" pluralTerm:@"people"],
                  [NSString stringWithInteger:self.hours singularTerm:@"hour" pluralTerm:@"hours"]];

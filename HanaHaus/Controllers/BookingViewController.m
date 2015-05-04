@@ -20,6 +20,7 @@
 
 - (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification;
 - (void)toggleDatePicker;
+- (void)updateHeaderFrame;
 
 @end
 
@@ -50,7 +51,7 @@
     self.headerView.frame = frame;
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
 
-    // Only permit bookings for today onwards
+    // Limit booking times
     self.datePicker.minimumDate = [NSDate beginningOfDay];
 }
 
@@ -133,13 +134,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    // Pin the header view to the top of the table view
-    CGFloat offset = self.tableView.contentOffset.y;
-
-    self.headerView.frame = CGRectMake(0,
-                                       offset,
-                                       self.tableView.frame.size.width,
-                                       MAX(self.tableView.tableHeaderView.frame.size.height - offset, 0));
+    [self updateHeaderFrame];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -148,15 +143,36 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)stepperValueDidChange:(id)sender
 {
-    self.numberOfPeopleLabel.text = [NSString stringWithInteger:self.numberOfPeopleStepper.value
-                                                   singularTerm:@"Person"
-                                                     pluralTerm:@"People"];
-    self.hoursLabel.text = [NSString stringWithInteger:self.hoursStepper.value singularTerm:@"Hour" pluralTerm:@"Hours"];
+    if ([sender isEqual:self.numberOfPeopleStepper]) {
+        self.numberOfPeopleLabel.text = [NSString stringWithInteger:self.numberOfPeopleStepper.value
+                                                       singularTerm:@"Person"
+                                                         pluralTerm:@"People"];
+
+        self.numberOfPeopleLabel.textColor = [UIColor redColor];
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [UIView transitionWithView:self.numberOfPeopleLabel
+                              duration:1
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                self.numberOfPeopleLabel.textColor = [UIColor blackColor];
+                            } completion:nil];
+        });
+    }
+    else if ([sender isEqual:self.hoursStepper]) {
+        self.hoursLabel.text = [NSString stringWithInteger:self.hoursStepper.value singularTerm:@"Hour" pluralTerm:@"Hours"];
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)datePickerValueDidChange:(id)sender
 {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    dateFormatter.timeStyle = NSDateFormatterShortStyle;
+    dateFormatter.dateFormat = @"MMM d, y     h:mm a";
+
+    self.startCell.detailTextLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -191,7 +207,7 @@
 - (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self scrollViewDidScroll:self.tableView];
+        [self updateHeaderFrame];
     });
 }
 
@@ -200,24 +216,72 @@
 {
     self.showDatePicker = !self.showDatePicker;
 
+    // ...
+    self.startCell.detailTextLabel.textColor = self.showDatePicker ? [UIColor redColor] : [UIColor blackColor];
+
+    // Animate ...
     [UIView animateWithDuration:0.5
                           delay:0
          usingSpringWithDamping:1
           initialSpringVelocity:1
                         options:0
                      animations:^{
-        [self.tableView beginUpdates];
-        [self.tableView reloadData];
-        [self.tableView endUpdates];
 
-        if (self.showDatePicker) {
-            self.tableView.contentOffset = CGPointMake(0, 110);
-        } else {
-            [self scrollViewDidScroll:self.tableView];
-        }
+                         // Show or hide date picker cell
+                         [self.tableView beginUpdates];
+                         [self.tableView reloadData];
+                         [self.tableView endUpdates];
 
-        [self.view layoutIfNeeded];
-    } completion:nil];
+                         // ... TODO(CN): Add comment
+                         if (self.showDatePicker) {
+                             CGFloat offset = (self.datePicker.frame.size.height + self.startCell.frame.size.height) / 2.0f;
+
+                             self.tableView.contentOffset = CGPointMake(0, offset);
+                         } else {
+                             [self updateHeaderFrame];
+                         }
+
+                         [self.view layoutIfNeeded];
+                     } completion:nil];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)updateHeaderFrame
+{
+    // Pin the header view to the top of the table view
+    CGFloat offset = self.tableView.contentOffset.y;
+
+    self.headerView.frame = CGRectMake(0,
+                                       offset,
+                                       self.tableView.frame.size.width,
+                                       MAX(self.tableView.tableHeaderView.frame.size.height - offset, 0));
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSString *)validate
+{
+    NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountName];
+    NSString *email = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountEmail];
+    NSString *phone = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountPhone];
+    NSString *zip = [[NSUserDefaults standardUserDefaults] objectForKey:kUserDefaultsAccountZip];
+
+    if ([name length] == 0) {
+        return @"Name required";
+    }
+
+    if ([email length] == 0) {
+        return @"Email required";
+    }
+
+    if ([phone length] == 0) {
+        return @"Phone required";
+    }
+
+    if ([zip length] == 0) {
+        return @"Zip required";
+    }
+
+    return nil;
 }
 
 @end
