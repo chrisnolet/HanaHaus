@@ -8,6 +8,7 @@
 
 #import "BookingViewController.h"
 #import "BookingTypeTableViewController.h"
+#import "AccountTableViewController.h"
 #import "ConfirmViewController.h"
 #import "AccountManager.h"
 #import "NSDate+BeginningOfDay.h"
@@ -20,9 +21,11 @@
 @property (nonatomic, assign) BOOL showDatePicker;
 
 - (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification;
+- (void)applicationSignificantTimeChange:(NSNotification *)notification;
 - (void)toggleDatePicker;
 - (void)updateHeaderFrame;
 - (void)updateStartDate;
+- (void)resetStartDate;
 
 @end
 
@@ -42,6 +45,12 @@
                                                  name:UIApplicationWillChangeStatusBarFrameNotification
                                                object:nil];
 
+    // Reset date picker at midnight
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationSignificantTimeChange:)
+                                                 name:UIApplicationSignificantTimeChangeNotification
+                                               object:nil];
+
     // Add header view
     self.headerView = [[[UINib nibWithNibName:@"Header" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
 
@@ -53,11 +62,8 @@
     self.headerView.frame = frame;
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
 
-    // Limit booking times
-    self.datePicker.minimumDate = [NSDate beginningOfDay];
-
-    // Show default date
-    [self updateStartDate];
+    // Set default start date
+    [self resetStartDate];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -79,6 +85,15 @@
 {
     if ([segue.identifier isEqualToString:@"BookingTypeSegue"]) {
 
+    }
+    else if ([segue.identifier isEqualToString:@"AccountSegue"]) {
+
+    }
+    else if ([segue.identifier isEqualToString:@"AccountRequiredSegue"]) {
+        AccountTableViewController *accountTableViewController = (AccountTableViewController *)[segue.destinationViewController
+                                                                                                topViewController];
+
+        accountTableViewController.confirmSegueOnUnwind = YES;
     }
     else if ([segue.identifier isEqualToString:@"ConfirmSegue"]) {
         ConfirmViewController *confirmViewController = segue.destinationViewController;
@@ -178,20 +193,9 @@
 - (IBAction)continueButtonPressed:(id)sender
 {
     if ([[AccountManager sharedInstance] validate]) {
-        [self performSegueWithIdentifier:@"AccountSegue" sender:nil];
+        [self performSegueWithIdentifier:@"AccountRequiredSegue" sender:nil];
     } else {
         [self performSegueWithIdentifier:@"ConfirmSegue" sender:nil];
-    }
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (IBAction)unwindFromAccount:(UIStoryboardSegue *)unwindSegue
-{
-    // TODO(CN): Unwind is always triggered on profile/account done, so need to track if AccountSegue is from Continue or Account
-    if ([[AccountManager sharedInstance] validate] == nil) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self performSegueWithIdentifier:@"ConfirmSegue" sender:nil];
-        });
     }
 }
 
@@ -201,6 +205,18 @@
     BookingTypeTableViewController *bookingTypeTableViewController = unwindSegue.sourceViewController;
 
     self.bookingTypeIndex = bookingTypeTableViewController.bookingTypeIndex;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (IBAction)unwindFromAccount:(UIStoryboardSegue *)unwindSegue
+{
+    AccountTableViewController *accountTableViewController = unwindSegue.sourceViewController;
+
+    if (accountTableViewController.confirmSegueOnUnwind) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSegueWithIdentifier:@"ConfirmSegue" sender:nil];
+        });
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -215,15 +231,21 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)applicationSignificantTimeChange:(NSNotification *)notification
+{
+    [self resetStartDate];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)toggleDatePicker
 {
     self.showDatePicker = !self.showDatePicker;
 
-    // ...
+    // Show active color on date label
     self.startCell.detailTextLabel.textColor = self.showDatePicker ? [UIColor redColor] : [UIColor blackColor];
 
-    // Animate ...
-    [UIView animateWithDuration:0.5
+    // Animate table view expansion
+    [UIView animateWithDuration:kAnimationDatePickerDuration
                           delay:0
          usingSpringWithDamping:1
           initialSpringVelocity:1
@@ -235,9 +257,9 @@
                          [self.tableView reloadData];
                          [self.tableView endUpdates];
 
-                         // ... TODO(CN): Add comment
+                         // Scroll to date picker
                          if (self.showDatePicker) {
-                             CGFloat offset = (self.datePicker.frame.size.height + self.startCell.frame.size.height) / 2.0f;
+                             CGFloat offset = (self.datePicker.frame.size.height + self.startCell.frame.size.height) / 2;
 
                              self.tableView.contentOffset = CGPointMake(0, offset);
                          } else {
@@ -254,11 +276,14 @@
     // Show active color on label
     label.textColor = [UIColor redColor];
 
-    // Fade to default color after a short delay
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [UIView transitionWithView:label duration:1 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-            label.textColor = [UIColor blackColor];
-        } completion:nil];
+    // Fade to default color
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, kAnimationIndicateUpdateDelay * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [UIView transitionWithView:label
+                          duration:kAnimationIndicateUpdateDuration
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            label.textColor = [UIColor blackColor];
+                        } completion:nil];
     });
 }
 
@@ -280,9 +305,23 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     dateFormatter.timeStyle = NSDateFormatterShortStyle;
-    dateFormatter.dateFormat = @"MMM d, y     h:mm a";
+    dateFormatter.dateFormat = @"MMM d, y\th:mm a";
 
     self.startCell.detailTextLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)resetStartDate
+{
+    // Round up to the nearest date picker interval
+    NSTimeInterval timeInterval = ceil([[NSDate date] timeIntervalSinceReferenceDate] / (self.datePicker.minuteInterval * 60))
+                                  * self.datePicker.minuteInterval * 60;
+
+    self.datePicker.date = [NSDate dateWithTimeIntervalSinceReferenceDate:timeInterval];
+    self.datePicker.minimumDate = [NSDate beginningOfDay];
+
+    // Display date
+    [self updateStartDate];
 }
 
 @end

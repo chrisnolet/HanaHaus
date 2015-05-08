@@ -137,7 +137,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="162" id="X24-kQ-YMy">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="163" id="X24-kQ-YMy">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X24-kQ-YMy" id="tjU-G7-yhE">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -205,6 +205,7 @@
                         <outlet property="startCell" destination="efY-PA-djq" id="lfm-ow-7iW"/>
                         <segue destination="58L-GJ-RYr" kind="show" identifier="ConfirmSegue" id="fsH-lE-875"/>
                         <segue destination="igH-NI-VnV" kind="presentation" identifier="AccountSegue" id="wpS-l3-LaF"/>
+                        <segue destination="igH-NI-VnV" kind="presentation" identifier="AccountRequiredSegue" id="uZ5-uQ-DCm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thr-2W-Z9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -653,4 +654,7 @@
     <resources>
         <image name="Logo-Black.png" width="110" height="110"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="uZ5-uQ-DCm"/>
+    </inferredMetricsTieBreakers>
 </document>

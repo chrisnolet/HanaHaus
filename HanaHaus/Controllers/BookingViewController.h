@@ -22,7 +22,7 @@
 - (IBAction)datePickerValueDidChange:(id)sender;
 - (IBAction)accountButtonPressed:(id)sender;
 - (IBAction)continueButtonPressed:(id)sender;
-- (IBAction)unwindFromAccount:(UIStoryboardSegue *)unwindSegue;
 - (IBAction)unwindFromBookingType:(UIStoryboardSegue *)unwindSegue;
+- (IBAction)unwindFromAccount:(UIStoryboardSegue *)unwindSegue;
 
 @end
