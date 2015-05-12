@@ -54,14 +54,6 @@
     // Add header view
     self.headerView = [[[UINib nibWithNibName:@"Header" bundle:nil] instantiateWithOwner:self options:nil] firstObject];
 
-    [self.tableView addSubview:self.headerView];
-
-    // Set header width and height
-    CGRect frame = CGRectMake(0, 0, self.tableView.frame.size.width, self.headerView.frame.size.height);
-
-    self.headerView.frame = frame;
-    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
-
     // Set default start date
     [self resetStartDate];
 }
@@ -221,6 +213,23 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private methods
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)setHeaderView:(UIView *)headerView
+{
+    [_headerView removeFromSuperview];
+
+    // Keep reference to header view
+    _headerView = headerView;
+
+    // Fill table view width
+    CGRect frame = CGRectMake(0, 0, self.tableView.frame.size.width, headerView.frame.size.height);
+
+    headerView.frame = frame;
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
+
+    [self.tableView addSubview:headerView];
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification

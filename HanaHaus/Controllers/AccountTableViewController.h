@@ -14,9 +14,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (strong, nonatomic) IBOutlet UITextField *zipTextField;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneBarButtonItem;
 
 @property (nonatomic, assign) BOOL confirmSegueOnUnwind;
 
+- (IBAction)textFieldTextDidChange:(id)sender;
 - (IBAction)cancelBarButtonItemPressed:(id)sender;
 - (IBAction)doneBarButtonItemPressed:(id)sender;
 

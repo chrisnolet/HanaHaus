@@ -261,6 +261,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
+                                                        <action selector="textFieldTextDidChange:" destination="XRc-qW-dWL" eventType="editingChanged" id="jZi-6p-vN2"/>
                                                         <outlet property="delegate" destination="XRc-qW-dWL" id="yyK-lG-2LS"/>
                                                     </connections>
                                                 </textField>
@@ -297,6 +298,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
+                                                        <action selector="textFieldTextDidChange:" destination="XRc-qW-dWL" eventType="editingChanged" id="sXM-gx-g8u"/>
                                                         <outlet property="delegate" destination="XRc-qW-dWL" id="gDk-ya-UTl"/>
                                                     </connections>
                                                 </textField>
@@ -333,6 +335,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="phonePad" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
+                                                        <action selector="textFieldTextDidChange:" destination="XRc-qW-dWL" eventType="editingChanged" id="6AH-eD-yjf"/>
                                                         <outlet property="delegate" destination="XRc-qW-dWL" id="9ZR-zl-VxC"/>
                                                     </connections>
                                                 </textField>
@@ -369,6 +372,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
+                                                        <action selector="textFieldTextDidChange:" destination="XRc-qW-dWL" eventType="editingChanged" id="J1k-dO-wuU"/>
                                                         <outlet property="delegate" destination="XRc-qW-dWL" id="CJF-1R-1eX"/>
                                                     </connections>
                                                 </textField>
@@ -400,13 +404,14 @@
                                 <action selector="cancelBarButtonItemPressed:" destination="XRc-qW-dWL" id="pMo-sC-pb5"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="57o-dw-GJN">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="57o-dw-GJN">
                             <connections>
                                 <action selector="doneBarButtonItemPressed:" destination="XRc-qW-dWL" id="HqF-C8-nmk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneBarButtonItem" destination="57o-dw-GJN" id="ABU-Pw-dxc"/>
                         <outlet property="emailTextField" destination="ABU-C3-JeB" id="3Z4-lV-YdJ"/>
                         <outlet property="nameTextField" destination="9cR-Gw-SFB" id="yQ0-XV-Ihr"/>
                         <outlet property="phoneTextField" destination="TaB-Il-azR" id="YSA-hQ-7kI"/>

@@ -10,6 +10,12 @@
 #import "EditCell.h"
 #import "AccountManager.h"
 
+@interface AccountTableViewController ()
+
+- (void)updateDoneButton;
+
+@end
+
 @implementation AccountTableViewController
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -35,6 +41,8 @@
     self.emailTextField.text = accountManager.email;
     self.phoneTextField.text = accountManager.phone;
     self.zipTextField.text = accountManager.zip;
+
+    [self updateDoneButton];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -112,6 +120,48 @@
 
     // Dismiss modal
     [self performSegueWithIdentifier:@"UnwindFromAccountSegue" sender:nil];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Public methods
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (IBAction)textFieldTextDidChange:(id)sender
+{
+    [self updateDoneButton];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Private methods
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)updateDoneButton
+{
+    if ([self.nameTextField.text length] == 0) {
+        self.doneBarButtonItem.enabled = NO;
+
+        return;
+    }
+
+    if ([self.emailTextField.text length] == 0) {
+        self.doneBarButtonItem.enabled = NO;
+
+        return;
+    }
+
+    if ([self.phoneTextField.text length] == 0) {
+        self.doneBarButtonItem.enabled = NO;
+
+        return;
+    }
+
+    if ([self.zipTextField.text length] == 0) {
+        self.doneBarButtonItem.enabled = NO;
+
+        return;
+    }
+
+    self.doneBarButtonItem.enabled = YES;
 }
 
 @end

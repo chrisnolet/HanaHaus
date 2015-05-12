@@ -185,10 +185,10 @@
 		83EDFA971AC75BFF0013FD71 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				83EDFA981AC75BFF0013FD71 /* BookingViewController.h */,
-				83EDFA991AC75BFF0013FD71 /* BookingViewController.m */,
 				83FD01381AD7362700262364 /* AccountTableViewController.h */,
 				83FD01391AD7362700262364 /* AccountTableViewController.m */,
+				83EDFA981AC75BFF0013FD71 /* BookingViewController.h */,
+				83EDFA991AC75BFF0013FD71 /* BookingViewController.m */,
 				839BF9531ACDF5FF00A8C370 /* BookingTypeTableViewController.h */,
 				839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */,
 				83A5682B1ACE07B000D541A8 /* ConfirmViewController.h */,
