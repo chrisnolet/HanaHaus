@@ -1,5 +1,5 @@
 //
-//  AccountManager.h
+//  AccountObject.h
 //  HanaHaus
 //
 //  Created by Chris Nolet on 5/4/15.
@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AccountManager : NSObject
+@interface AccountObject : NSObject
 
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *email;
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) NSString *zip;
 
-+ (instancetype)sharedInstance;
 - (NSString *)validate;
+- (void)save;
 
 @end

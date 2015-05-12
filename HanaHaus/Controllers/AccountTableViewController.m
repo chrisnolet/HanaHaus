@@ -8,9 +8,11 @@
 
 #import "AccountTableViewController.h"
 #import "EditCell.h"
-#import "AccountManager.h"
+#import "AccountObject.h"
 
 @interface AccountTableViewController ()
+
+@property (strong, nonatomic) AccountObject *account;
 
 - (void)updateDoneButton;
 
@@ -35,12 +37,12 @@
     [super viewWillAppear:animated];
 
     // Recall account details
-    AccountManager *accountManager = [AccountManager sharedInstance];
+    self.account = [[AccountObject alloc] init];
 
-    self.nameTextField.text = accountManager.name;
-    self.emailTextField.text = accountManager.email;
-    self.phoneTextField.text = accountManager.phone;
-    self.zipTextField.text = accountManager.zip;
+    self.nameTextField.text = self.account.name;
+    self.emailTextField.text = self.account.email;
+    self.phoneTextField.text = self.account.phone;
+    self.zipTextField.text = self.account.zip;
 
     [self updateDoneButton];
 }
@@ -111,12 +113,12 @@
 - (IBAction)doneBarButtonItemPressed:(id)sender
 {
     // Save account details
-    AccountManager *accountManager = [AccountManager sharedInstance];
+    self.account.name = self.nameTextField.text;
+    self.account.email = self.emailTextField.text;
+    self.account.phone = self.phoneTextField.text;
+    self.account.zip = self.zipTextField.text;
 
-    accountManager.name = self.nameTextField.text;
-    accountManager.email = self.emailTextField.text;
-    accountManager.phone = self.phoneTextField.text;
-    accountManager.zip = self.zipTextField.text;
+    [self.account save];
 
     // Dismiss modal
     [self performSegueWithIdentifier:@"UnwindFromAccountSegue" sender:nil];
@@ -137,31 +139,12 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)updateDoneButton
 {
-    if ([self.nameTextField.text length] == 0) {
-        self.doneBarButtonItem.enabled = NO;
+    self.account.name = self.nameTextField.text;
+    self.account.email = self.emailTextField.text;
+    self.account.phone = self.phoneTextField.text;
+    self.account.zip = self.zipTextField.text;
 
-        return;
-    }
-
-    if ([self.emailTextField.text length] == 0) {
-        self.doneBarButtonItem.enabled = NO;
-
-        return;
-    }
-
-    if ([self.phoneTextField.text length] == 0) {
-        self.doneBarButtonItem.enabled = NO;
-
-        return;
-    }
-
-    if ([self.zipTextField.text length] == 0) {
-        self.doneBarButtonItem.enabled = NO;
-
-        return;
-    }
-
-    self.doneBarButtonItem.enabled = YES;
+    self.doneBarButtonItem.enabled = ![self.account validate];
 }
 
 @end
