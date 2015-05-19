@@ -20,6 +20,8 @@
 		83420E201AEDF67300697997 /* NSDate+BeginningOfDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 83420E1F1AEDF67300697997 /* NSDate+BeginningOfDay.m */; };
 		835227ED1ACD0E8D00B42DD2 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835227EC1ACD0E8D00B42DD2 /* Header.xib */; };
 		836B2E161AF7E9D100BE39E1 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 836B2E151AF7E9D100BE39E1 /* AccountManager.m */; };
+		8372D2491B0B1CBB00E24B3B /* BookingTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8372D2481B0B1CBB00E24B3B /* BookingTypeManager.m */; };
+		8372D24B1B0B1CCE00E24B3B /* BookingTypeManager.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8372D24A1B0B1CCE00E24B3B /* BookingTypeManager.plist */; };
 		83936F121AE9B09300897EDB /* CompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83936F111AE9B09300897EDB /* CompleteViewController.m */; };
 		83936F191AEAD43100897EDB /* NSString+Plural.m in Sources */ = {isa = PBXBuildFile; fileRef = 83936F181AEAD43100897EDB /* NSString+Plural.m */; };
 		839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */; };
@@ -52,6 +54,9 @@
 		835227EC1ACD0E8D00B42DD2 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 		836B2E141AF7E9D100BE39E1 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		836B2E151AF7E9D100BE39E1 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
+		8372D2471B0B1CBB00E24B3B /* BookingTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookingTypeManager.h; sourceTree = "<group>"; };
+		8372D2481B0B1CBB00E24B3B /* BookingTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookingTypeManager.m; sourceTree = "<group>"; };
+		8372D24A1B0B1CCE00E24B3B /* BookingTypeManager.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BookingTypeManager.plist; sourceTree = "<group>"; };
 		83936F101AE9B09300897EDB /* CompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteViewController.h; sourceTree = "<group>"; };
 		83936F111AE9B09300897EDB /* CompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteViewController.m; sourceTree = "<group>"; };
 		83936F171AEAD43100897EDB /* NSString+Plural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Plural.h"; sourceTree = "<group>"; };
@@ -204,6 +209,9 @@
 			children = (
 				836B2E141AF7E9D100BE39E1 /* AccountManager.h */,
 				836B2E151AF7E9D100BE39E1 /* AccountManager.m */,
+				8372D2471B0B1CBB00E24B3B /* BookingTypeManager.h */,
+				8372D2481B0B1CBB00E24B3B /* BookingTypeManager.m */,
+				8372D24A1B0B1CCE00E24B3B /* BookingTypeManager.plist */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,6 +292,7 @@
 			files = (
 				83EDFA781AC75AE80013FD71 /* Main.storyboard in Resources */,
 				83EDFA7D1AC75AE80013FD71 /* LaunchScreen.xib in Resources */,
+				8372D24B1B0B1CCE00E24B3B /* BookingTypeManager.plist in Resources */,
 				835227ED1ACD0E8D00B42DD2 /* Header.xib in Resources */,
 				83420E0E1AEDE85F00697997 /* Logo-Black.png in Resources */,
 				83420E0F1AEDE85F00697997 /* Logo.png in Resources */,
@@ -314,6 +323,7 @@
 				83936F121AE9B09300897EDB /* CompleteViewController.m in Sources */,
 				83A5682D1ACE07B000D541A8 /* ConfirmViewController.m in Sources */,
 				83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */,
+				8372D2491B0B1CBB00E24B3B /* BookingTypeManager.m in Sources */,
 				839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */,
 				83A568301ACE174600D541A8 /* UIButton+ActivityIndicatorView.m in Sources */,
 				833AEC451AE722EF00089E4B /* EditCell.m in Sources */,
