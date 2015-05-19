@@ -19,7 +19,7 @@
 		83420E1C1AEDE86E00697997 /* Profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83420E191AEDE86E00697997 /* Profile@3x.png */; };
 		83420E201AEDF67300697997 /* NSDate+BeginningOfDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 83420E1F1AEDF67300697997 /* NSDate+BeginningOfDay.m */; };
 		835227ED1ACD0E8D00B42DD2 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835227EC1ACD0E8D00B42DD2 /* Header.xib */; };
-		836B2E161AF7E9D100BE39E1 /* AccountObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 836B2E151AF7E9D100BE39E1 /* AccountObject.m */; };
+		836B2E161AF7E9D100BE39E1 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 836B2E151AF7E9D100BE39E1 /* AccountManager.m */; };
 		83936F121AE9B09300897EDB /* CompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83936F111AE9B09300897EDB /* CompleteViewController.m */; };
 		83936F191AEAD43100897EDB /* NSString+Plural.m in Sources */ = {isa = PBXBuildFile; fileRef = 83936F181AEAD43100897EDB /* NSString+Plural.m */; };
 		839BF9551ACDF5FF00A8C370 /* BookingTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839BF9541ACDF5FF00A8C370 /* BookingTypeTableViewController.m */; };
@@ -50,8 +50,8 @@
 		83420E1E1AEDF67300697997 /* NSDate+BeginningOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BeginningOfDay.h"; sourceTree = "<group>"; };
 		83420E1F1AEDF67300697997 /* NSDate+BeginningOfDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BeginningOfDay.m"; sourceTree = "<group>"; };
 		835227EC1ACD0E8D00B42DD2 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
-		836B2E141AF7E9D100BE39E1 /* AccountObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountObject.h; sourceTree = "<group>"; };
-		836B2E151AF7E9D100BE39E1 /* AccountObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountObject.m; sourceTree = "<group>"; };
+		836B2E141AF7E9D100BE39E1 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
+		836B2E151AF7E9D100BE39E1 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
 		83936F101AE9B09300897EDB /* CompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompleteViewController.h; sourceTree = "<group>"; };
 		83936F111AE9B09300897EDB /* CompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompleteViewController.m; sourceTree = "<group>"; };
 		83936F171AEAD43100897EDB /* NSString+Plural.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Plural.h"; sourceTree = "<group>"; };
@@ -202,8 +202,8 @@
 		83EDFA9D1AC75BFF0013FD71 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				836B2E141AF7E9D100BE39E1 /* AccountObject.h */,
-				836B2E151AF7E9D100BE39E1 /* AccountObject.m */,
+				836B2E141AF7E9D100BE39E1 /* AccountManager.h */,
+				836B2E151AF7E9D100BE39E1 /* AccountManager.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -310,7 +310,7 @@
 				83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */,
 				83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */,
 				83EDFA6C1AC75AE80013FD71 /* main.m in Sources */,
-				836B2E161AF7E9D100BE39E1 /* AccountObject.m in Sources */,
+				836B2E161AF7E9D100BE39E1 /* AccountManager.m in Sources */,
 				83936F121AE9B09300897EDB /* CompleteViewController.m in Sources */,
 				83A5682D1ACE07B000D541A8 /* ConfirmViewController.m in Sources */,
 				83EDFAA11AC75BFF0013FD71 /* BookingViewController.m in Sources */,

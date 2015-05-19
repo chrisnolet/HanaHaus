@@ -10,7 +10,7 @@
 #import "BookingTypeTableViewController.h"
 #import "AccountTableViewController.h"
 #import "ConfirmViewController.h"
-#import "AccountObject.h"
+#import "AccountManager.h"
 #import "NSDate+BeginningOfDay.h"
 #import "NSString+Plural.h"
 
@@ -184,9 +184,9 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)continueButtonPressed:(id)sender
 {
-    AccountObject *account = [[AccountObject alloc] init];
+    AccountManager *accountManager = [[AccountManager alloc] init];
 
-    if ([account validate]) {
+    if ([accountManager validate]) {
         [self performSegueWithIdentifier:@"AccountRequiredSegue" sender:nil];
     } else {
         [self performSegueWithIdentifier:@"ConfirmSegue" sender:nil];

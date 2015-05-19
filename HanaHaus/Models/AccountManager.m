@@ -1,14 +1,14 @@
 //
-//  AccountObject.m
+//  AccountManager.m
 //  HanaHaus
 //
 //  Created by Chris Nolet on 5/4/15.
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
-#import "AccountObject.h"
+#import "AccountManager.h"
 
-@implementation AccountObject
+@implementation AccountManager
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - NSObject

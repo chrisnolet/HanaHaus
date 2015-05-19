@@ -8,11 +8,11 @@
 
 #import "AccountTableViewController.h"
 #import "EditCell.h"
-#import "AccountObject.h"
+#import "AccountManager.h"
 
 @interface AccountTableViewController ()
 
-@property (strong, nonatomic) AccountObject *account;
+@property (strong, nonatomic) AccountManager *accountManager;
 
 - (void)updateDoneButton;
 
@@ -37,12 +37,12 @@
     [super viewWillAppear:animated];
 
     // Recall account details
-    self.account = [[AccountObject alloc] init];
+    self.accountManager = [[AccountManager alloc] init];
 
-    self.nameTextField.text = self.account.name;
-    self.emailTextField.text = self.account.email;
-    self.phoneTextField.text = self.account.phone;
-    self.zipTextField.text = self.account.zip;
+    self.nameTextField.text = self.accountManager.name;
+    self.emailTextField.text = self.accountManager.email;
+    self.phoneTextField.text = self.accountManager.phone;
+    self.zipTextField.text = self.accountManager.zip;
 
     [self updateDoneButton];
 }
@@ -113,12 +113,12 @@
 - (IBAction)doneBarButtonItemPressed:(id)sender
 {
     // Save account details
-    self.account.name = self.nameTextField.text;
-    self.account.email = self.emailTextField.text;
-    self.account.phone = self.phoneTextField.text;
-    self.account.zip = self.zipTextField.text;
+    self.accountManager.name = self.nameTextField.text;
+    self.accountManager.email = self.emailTextField.text;
+    self.accountManager.phone = self.phoneTextField.text;
+    self.accountManager.zip = self.zipTextField.text;
 
-    [self.account save];
+    [self.accountManager save];
 
     // Dismiss modal
     [self performSegueWithIdentifier:@"UnwindFromAccountSegue" sender:nil];
@@ -139,12 +139,12 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)updateDoneButton
 {
-    self.account.name = self.nameTextField.text;
-    self.account.email = self.emailTextField.text;
-    self.account.phone = self.phoneTextField.text;
-    self.account.zip = self.zipTextField.text;
+    self.accountManager.name = self.nameTextField.text;
+    self.accountManager.email = self.emailTextField.text;
+    self.accountManager.phone = self.phoneTextField.text;
+    self.accountManager.zip = self.zipTextField.text;
 
-    self.doneBarButtonItem.enabled = ![self.account validate];
+    self.doneBarButtonItem.enabled = ![self.accountManager validate];
 }
 
 @end
