@@ -10,12 +10,15 @@
 
 @interface ConfirmViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UILabel *detailLabel;
+@property (strong, nonatomic) IBOutlet UILabel *numberOfPeopleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *hoursLabel;
+@property (strong, nonatomic) IBOutlet UILabel *startDateLabel;
 @property (strong, nonatomic) IBOutlet UIButton *confirmButton;
 
 @property (nonatomic, assign) NSInteger bookingTypeIndex;
 @property (nonatomic, assign) NSInteger numberOfPeople;
 @property (nonatomic, assign) NSInteger hours;
+@property (strong, nonatomic) NSDate *startDate;
 
 - (IBAction)confirmButtonPressed:(id)sender;
 

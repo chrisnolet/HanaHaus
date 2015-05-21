@@ -93,6 +93,7 @@
         confirmViewController.bookingTypeIndex = self.bookingTypeIndex;
         confirmViewController.numberOfPeople = self.numberOfPeopleStepper.value;
         confirmViewController.hours = self.hoursStepper.value;
+        confirmViewController.startDate = self.datePicker.date;
     }
 }
 
@@ -123,7 +124,7 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
-    if ([cell isEqual:self.startCell]) {
+    if ([cell isEqual:self.startDateCell]) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
         [self toggleDatePicker];
@@ -253,7 +254,7 @@
     self.showDatePicker = !self.showDatePicker;
 
     // Show active color on date label
-    self.startCell.detailTextLabel.textColor = self.showDatePicker ? [UIColor redColor] : [UIColor blackColor];
+    self.startDateCell.detailTextLabel.textColor = self.showDatePicker ? [UIColor redColor] : [UIColor blackColor];
 
     // Animate table view expansion
     [UIView animateWithDuration:kAnimationDatePickerDuration
@@ -270,7 +271,7 @@
 
                          // Scroll to date picker
                          if (self.showDatePicker) {
-                             CGFloat offset = (self.datePicker.frame.size.height + self.startCell.frame.size.height) / 2;
+                             CGFloat offset = (self.datePicker.frame.size.height + self.startDateCell.frame.size.height) / 2;
 
                              self.tableView.contentOffset = CGPointMake(0, offset);
                          } else {
@@ -316,9 +317,9 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     dateFormatter.timeStyle = NSDateFormatterShortStyle;
-    dateFormatter.dateFormat = @"MMM d, y\th:mm a";
+    dateFormatter.dateFormat = @"EEE, MMM d\th:mm a";
 
-    self.startCell.detailTextLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
+    self.startDateCell.detailTextLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

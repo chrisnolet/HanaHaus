@@ -129,7 +129,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Apr 21, 2015     9:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lfw-Ws-hs2">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Tue, Apr 21    9:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lfw-Ws-hs2">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
@@ -202,7 +202,7 @@
                         <outlet property="hoursStepper" destination="ZAw-XN-bnn" id="oHQ-Df-sdZ"/>
                         <outlet property="numberOfPeopleLabel" destination="2F4-bb-3WH" id="4Ac-QQ-6Y9"/>
                         <outlet property="numberOfPeopleStepper" destination="qhn-4G-Ifc" id="ZKP-4d-FKh"/>
-                        <outlet property="startCell" destination="efY-PA-djq" id="lfm-ow-7iW"/>
+                        <outlet property="startDateCell" destination="efY-PA-djq" id="FyD-WA-29N"/>
                         <segue destination="58L-GJ-RYr" kind="show" identifier="ConfirmSegue" id="fsH-lE-875"/>
                         <segue destination="igH-NI-VnV" kind="presentation" identifier="AccountSegue" id="wpS-l3-LaF"/>
                         <segue destination="igH-NI-VnV" kind="presentation" identifier="AccountRequiredSegue" id="uZ5-uQ-DCm"/>
@@ -437,9 +437,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO9-ie-V6W">
-                                <rect key="frame" x="20" y="180" width="280" height="45"/>
+                                <rect key="frame" x="20" y="180" width="280" height="23"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="You are about to book a Single Seat for 1 person for 1 hour.">
+                                    <fragment content="Please confirm your reservation for:">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
@@ -453,7 +453,7 @@
                                 <rect key="frame" x="105" y="40" width="110" height="110"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2i-iS-wSC">
-                                <rect key="frame" x="20" y="255" width="280" height="50"/>
+                                <rect key="frame" x="20" y="322" width="280" height="50"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.3803921569" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="iyF-zX-YYO"/>
@@ -468,13 +468,37 @@
                                     <action selector="confirmButtonPressed:" destination="58L-GJ-RYr" eventType="touchUpInside" id="793-Ed-4Nx"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 person" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NY-qF-cJu">
+                                <rect key="frame" x="128" y="218" width="64" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDI-yT-lS6">
+                                <rect key="frame" x="137" y="245" width="47" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue, Apr 21 at 9:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6R-vo-fwt">
+                                <rect key="frame" x="77" y="272" width="167" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Q2i-iS-wSC" firstAttribute="top" secondItem="DO9-ie-V6W" secondAttribute="bottom" constant="30" id="Pli-ls-hFW"/>
+                            <constraint firstAttribute="centerX" secondItem="5NY-qF-cJu" secondAttribute="centerX" id="2zR-dW-MLG"/>
+                            <constraint firstAttribute="centerX" secondItem="zDI-yT-lS6" secondAttribute="centerX" id="Gj5-sI-u39"/>
+                            <constraint firstItem="Q2i-iS-wSC" firstAttribute="top" secondItem="n6R-vo-fwt" secondAttribute="bottom" constant="30" id="H5x-K9-dFa"/>
+                            <constraint firstItem="5NY-qF-cJu" firstAttribute="top" secondItem="DO9-ie-V6W" secondAttribute="bottom" constant="15" id="Jte-Rn-BCV"/>
                             <constraint firstAttribute="trailing" secondItem="DO9-ie-V6W" secondAttribute="trailing" constant="20" id="QY7-XA-Jr9"/>
                             <constraint firstAttribute="centerX" secondItem="Gwn-ih-EiZ" secondAttribute="centerX" id="Y3N-wj-Hy4"/>
+                            <constraint firstItem="n6R-vo-fwt" firstAttribute="top" secondItem="zDI-yT-lS6" secondAttribute="bottom" constant="7" id="bON-pL-7TE"/>
+                            <constraint firstAttribute="centerX" secondItem="n6R-vo-fwt" secondAttribute="centerX" id="cc4-uY-NLI"/>
                             <constraint firstItem="Q2i-iS-wSC" firstAttribute="leading" secondItem="aAS-xT-qvU" secondAttribute="leading" constant="20" id="i8y-sj-cky"/>
+                            <constraint firstItem="zDI-yT-lS6" firstAttribute="top" secondItem="5NY-qF-cJu" secondAttribute="bottom" constant="7" id="k8X-uP-cvY"/>
                             <constraint firstAttribute="trailing" secondItem="Q2i-iS-wSC" secondAttribute="trailing" constant="20" id="nt9-Sd-vC6"/>
                             <constraint firstItem="DO9-ie-V6W" firstAttribute="leading" secondItem="aAS-xT-qvU" secondAttribute="leading" constant="20" id="qeV-rd-PQ1"/>
                             <constraint firstItem="DO9-ie-V6W" firstAttribute="top" secondItem="Gwn-ih-EiZ" secondAttribute="bottom" constant="30" id="sVk-1A-AKx"/>
@@ -484,7 +508,9 @@
                     <navigationItem key="navigationItem" title="Confirm" id="ctL-bA-XkT"/>
                     <connections>
                         <outlet property="confirmButton" destination="Q2i-iS-wSC" id="Q1N-an-7u3"/>
-                        <outlet property="detailLabel" destination="DO9-ie-V6W" id="Nc3-jt-J1v"/>
+                        <outlet property="hoursLabel" destination="zDI-yT-lS6" id="39F-KS-FDq"/>
+                        <outlet property="numberOfPeopleLabel" destination="5NY-qF-cJu" id="VGP-O0-peE"/>
+                        <outlet property="startDateLabel" destination="n6R-vo-fwt" id="Hwa-Dx-Unl"/>
                         <segue destination="TcU-tH-oWG" kind="show" identifier="CompleteSegue" id="igb-ak-HJC"/>
                     </connections>
                 </viewController>
@@ -501,6 +527,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="rll-w5-GhB">
+                            <rect key="frame" x="0.0" y="54" width="320" height="80"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please visit the website to reserve conference rooms or group seating." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="39P-Fn-bRx">
+                                    <rect key="frame" x="15" y="15" width="290" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="39P-Fn-bRx" firstAttribute="top" secondItem="rll-w5-GhB" secondAttribute="top" constant="15" id="6re-6Z-Qgd"/>
+                                <constraint firstAttribute="trailing" secondItem="39P-Fn-bRx" secondAttribute="trailing" constant="15" id="VQo-wQ-L9c"/>
+                                <constraint firstItem="39P-Fn-bRx" firstAttribute="leading" secondItem="rll-w5-GhB" secondAttribute="leading" constant="15" id="cgx-BB-yzh"/>
+                            </constraints>
+                        </view>
                         <sections>
                             <tableViewSection id="GB4-ir-n0J">
                                 <cells>
@@ -518,54 +562,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="0I1-V3-rgy" style="IBUITableViewCellStyleDefault" id="HCJ-7c-tLB">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="keV-vl-Sfc" rowHeight="1" style="IBUITableViewCellStyleDefault" id="z59-wJ-7cd">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HCJ-7c-tLB" id="cES-jv-XpR">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z59-wJ-7cd" id="zGX-4o-UQf">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Group Seating (Tabletop)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0I1-V3-rgy">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="EjJ-tp-gwg" style="IBUITableViewCellStyleDefault" id="kXk-KN-LKe">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kXk-KN-LKe" id="i7Z-MT-lAM">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Group Seating (Lounge)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EjJ-tp-gwg">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="MUP-Ij-1r9" style="IBUITableViewCellStyleDefault" id="hF6-fI-y4r">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hF6-fI-y4r" id="Yzo-aV-A8m">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Conference Room" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MUP-Ij-1r9">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="UOm-UB-syo" style="IBUITableViewCellStyleDefault" id="yoc-x6-9HH">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yoc-x6-9HH" id="N1Y-E4-TSI">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Quiet Room" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UOm-UB-syo">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="keV-vl-Sfc">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -605,9 +607,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqy-ZT-ncB">
-                                <rect key="frame" x="20" y="180" width="280" height="68"/>
+                                <rect key="frame" x="20" y="180" width="280" height="45"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Your reservation has been confirmed. Please pay at the desk when you arrive.">
+                                    <fragment content="Your reservation has been confirmed. Please pay at the desk upon arrival.">
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
@@ -621,7 +623,7 @@
                                 <rect key="frame" x="105" y="40" width="110" height="110"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FP-fc-9lZ">
-                                <rect key="frame" x="20" y="278" width="280" height="50"/>
+                                <rect key="frame" x="20" y="255" width="280" height="50"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.3803921569" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="UIt-C0-yI1"/>

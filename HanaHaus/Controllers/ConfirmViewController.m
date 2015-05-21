@@ -12,7 +12,7 @@
 
 @interface ConfirmViewController ()
 
-- (void)setText:(NSString *)text;
+- (void)updateText;
 
 @end
 
@@ -24,13 +24,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    // Set detail text
-    self.text = [NSString stringWithFormat:@"You are about to book a %@ for %@ for %@.",
-                 @"Single Seat",
-                 [NSString stringWithInteger:self.numberOfPeople singularTerm:@"person" pluralTerm:@"people"],
-                 [NSString stringWithInteger:self.hours singularTerm:@"hour" pluralTerm:@"hours"]];
+    [self updateText];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,21 +42,7 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - Private methods
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setText:(NSString *)text
-{
-    // Create attributes
-    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.alignment = NSTextAlignmentCenter;
-    paragraphStyle.lineHeightMultiple = 1.3f;
-
-    NSDictionary *attributes = @{ NSParagraphStyleAttributeName: paragraphStyle };
-
-    // Set attributed text
-    self.detailLabel.attributedText = [[NSAttributedString alloc] initWithString:text attributes:attributes];
-}
+#pragma mark - Public methods
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)confirmButtonPressed:(id)sender
@@ -127,6 +107,25 @@
 //            NSLog(@"Error: %@", error);
 //        }] resume];
 //    }] resume];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Private methods
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)updateText
+{
+    // Show booking details
+    self.numberOfPeopleLabel.text = [NSString stringWithInteger:self.numberOfPeople singularTerm:@"person" pluralTerm:@"people"];
+    self.hoursLabel.text = [NSString stringWithInteger:self.hours singularTerm:@"hour" pluralTerm:@"hours"];
+
+    // Show the date
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    dateFormatter.timeStyle = NSDateFormatterShortStyle;
+    dateFormatter.dateFormat = @"EEE, MMM d 'at' h:mm a";
+
+    self.startDateLabel.text = [dateFormatter stringFromDate:self.startDate];
 }
 
 @end

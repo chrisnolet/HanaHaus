@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIStepper *numberOfPeopleStepper;
 @property (strong, nonatomic) IBOutlet UILabel *hoursLabel;
 @property (strong, nonatomic) IBOutlet UIStepper *hoursStepper;
-@property (strong, nonatomic) IBOutlet UITableViewCell *startCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *startDateCell;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 
 - (IBAction)stepperValueDidChange:(id)sender;
