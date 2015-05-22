@@ -229,7 +229,9 @@
     CGRect frame = CGRectMake(0, 0, self.tableView.frame.size.width, headerView.frame.size.height);
 
     headerView.frame = frame;
+
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:frame];
+    self.tableView.tableHeaderView.userInteractionEnabled = NO;
 
     [self.tableView addSubview:headerView];
 }
