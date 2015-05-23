@@ -1,14 +1,14 @@
 //
-//  BookingTypeManager.m
+//  ReservationTypeManager.m
 //  HanaHaus
 //
 //  Created by Chris Nolet on 5/19/15.
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
-#import "BookingTypeManager.h"
+#import "ReservationTypeManager.h"
 
-@implementation BookingTypeManager
+@implementation ReservationTypeManager
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Class methods
@@ -35,8 +35,8 @@
     self = [super init];
 
     if (self) {
-        self.bookingTypes = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"CategoryManager"
-                                                                                             ofType:@"plist"]];
+        self.reservationTypes = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ReservationTypeManager"
+                                                                                                 ofType:@"plist"]];
     }
 
     return self;

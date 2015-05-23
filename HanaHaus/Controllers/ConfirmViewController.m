@@ -115,7 +115,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)updateText
 {
-    // Show booking details
+    // Show reservation details
     self.numberOfPeopleLabel.text = [NSString stringWithInteger:self.numberOfPeople singularTerm:@"person" pluralTerm:@"people"];
     self.hoursLabel.text = [NSString stringWithInteger:self.hours singularTerm:@"hour" pluralTerm:@"hours"];
 

@@ -1,23 +1,23 @@
 //
-//  BookingViewController.m
+//  ReservationViewController.m
 //  HanaHaus
 //
 //  Created by Chris Nolet on 3/28/15.
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
-#import "BookingViewController.h"
-#import "BookingTypeTableViewController.h"
+#import "ReservationViewController.h"
+#import "ReservationTypeTableViewController.h"
 #import "AccountTableViewController.h"
 #import "ConfirmViewController.h"
 #import "AccountManager.h"
 #import "NSDate+BeginningOfDay.h"
 #import "NSString+Plural.h"
 
-@interface BookingViewController ()
+@interface ReservationViewController ()
 
 @property (strong, nonatomic) UIView *headerView;
-@property (nonatomic, assign) NSInteger bookingTypeIndex;
+@property (nonatomic, assign) NSInteger reservationTypeIndex;
 @property (nonatomic, assign) BOOL showDatePicker;
 
 - (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification;
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation BookingViewController
+@implementation ReservationViewController
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - UIViewController
@@ -75,7 +75,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"BookingTypeSegue"]) {
+    if ([segue.identifier isEqualToString:@"ReservationTypeSegue"]) {
 
     }
     else if ([segue.identifier isEqualToString:@"AccountSegue"]) {
@@ -90,7 +90,7 @@
     else if ([segue.identifier isEqualToString:@"ConfirmSegue"]) {
         ConfirmViewController *confirmViewController = segue.destinationViewController;
 
-        confirmViewController.bookingTypeIndex = self.bookingTypeIndex;
+        confirmViewController.reservationTypeIndex = self.reservationTypeIndex;
         confirmViewController.numberOfPeople = self.numberOfPeopleStepper.value;
         confirmViewController.hours = self.hoursStepper.value;
         confirmViewController.startDate = self.datePicker.date;
@@ -196,11 +196,11 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (IBAction)unwindFromBookingType:(UIStoryboardSegue *)unwindSegue
+- (IBAction)unwindFromReservationType:(UIStoryboardSegue *)unwindSegue
 {
-    BookingTypeTableViewController *bookingTypeTableViewController = unwindSegue.sourceViewController;
+    ReservationTypeTableViewController *reservationTypeTableViewController = unwindSegue.sourceViewController;
 
-    self.bookingTypeIndex = bookingTypeTableViewController.bookingTypeIndex;
+    self.reservationTypeIndex = reservationTypeTableViewController.reservationTypeIndex;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -27,7 +27,7 @@
         <!--HanaHaus-->
         <scene sceneID="4ci-ML-D7h">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="IQk-MY-Ndw" customClass="BookingViewController" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="IQk-MY-Ndw" customClass="ReservationViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="DOG-Yt-pss">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +61,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Lzc-pG-ndP" kind="show" identifier="BookingTypeSegue" id="wST-OH-pV2"/>
+                                            <segue destination="Lzc-pG-ndP" kind="show" identifier="ReservationTypeSegue" id="wST-OH-pV2"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="PUX-LU-0d3">
@@ -196,12 +196,12 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="MPj-ag-TAq"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="bookingTypeCell" destination="2Vj-yq-9at" id="81B-AW-gsb"/>
                         <outlet property="datePicker" destination="YKn-fw-UbR" id="XLm-iL-3h3"/>
                         <outlet property="hoursLabel" destination="i5F-eL-wfr" id="WVu-i7-vcN"/>
                         <outlet property="hoursStepper" destination="ZAw-XN-bnn" id="oHQ-Df-sdZ"/>
                         <outlet property="numberOfPeopleLabel" destination="2F4-bb-3WH" id="4Ac-QQ-6Y9"/>
                         <outlet property="numberOfPeopleStepper" destination="qhn-4G-Ifc" id="ZKP-4d-FKh"/>
+                        <outlet property="reservationTypeCell" destination="2Vj-yq-9at" id="fxi-Ae-6lE"/>
                         <outlet property="startDateCell" destination="efY-PA-djq" id="FyD-WA-29N"/>
                         <segue destination="58L-GJ-RYr" kind="show" identifier="ConfirmSegue" id="fsH-lE-875"/>
                         <segue destination="igH-NI-VnV" kind="presentation" identifier="AccountSegue" id="wpS-l3-LaF"/>
@@ -521,7 +521,7 @@
         <!--Reservation Type-->
         <scene sceneID="vbY-V2-mGz">
             <objects>
-                <tableViewController id="Lzc-pG-ndP" customClass="BookingTypeTableViewController" sceneMemberID="viewController">
+                <tableViewController id="Lzc-pG-ndP" customClass="ReservationTypeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="22" sectionFooterHeight="22" id="7bd-xg-8hu">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -586,7 +586,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Reservation Type" id="oyK-7L-zxz"/>
                     <connections>
-                        <segue destination="0lV-Gr-geC" kind="unwind" identifier="UnwindFromBookingTypeSegue" unwindAction="unwindFromBookingType:" id="i2C-56-nxI"/>
+                        <segue destination="0lV-Gr-geC" kind="unwind" identifier="UnwindFromReservationTypeSegue" unwindAction="unwindFromReservationType:" id="i2C-56-nxI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5o-qx-T1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -662,6 +662,6 @@
         <image name="Logo-Black.png" width="110" height="110"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uZ5-uQ-DCm"/>
+        <segue reference="wpS-l3-LaF"/>
     </inferredMetricsTieBreakers>
 </document>

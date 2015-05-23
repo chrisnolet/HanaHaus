@@ -1,5 +1,5 @@
 //
-//  BookingTypeManager.h
+//  ReservationTypeManager.h
 //  HanaHaus
 //
 //  Created by Chris Nolet on 5/19/15.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BookingTypeManager : NSObject
+@interface ReservationTypeManager : NSObject
 
-@property (strong, nonatomic) NSArray *bookingTypes;
+@property (strong, nonatomic) NSArray *reservationTypes;
 
 + (instancetype)sharedInstance;
 

@@ -1,14 +1,14 @@
 //
-//  BookingTypeTableViewController.m
+//  ReservationTypeTableViewController.m
 //  HanaHaus
 //
 //  Created by Chris Nolet on 4/2/15.
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
-#import "BookingTypeTableViewController.h"
+#import "ReservationTypeTableViewController.h"
 
-@implementation BookingTypeTableViewController
+@implementation ReservationTypeTableViewController
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - UIViewController
@@ -33,9 +33,9 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.bookingTypeIndex = indexPath.row;
+    self.reservationTypeIndex = indexPath.row;
 
-    [self performSegueWithIdentifier:@"UnwindFromBookingTypeSegue" sender:nil];
+    [self performSegueWithIdentifier:@"UnwindFromReservationTypeSegue" sender:nil];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

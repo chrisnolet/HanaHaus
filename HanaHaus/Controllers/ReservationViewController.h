@@ -1,5 +1,5 @@
 //
-//  BookingViewController.h
+//  ReservationViewController.h
 //  HanaHaus
 //
 //  Created by Chris Nolet on 3/28/15.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BookingViewController : UITableViewController
+@interface ReservationViewController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UITableViewCell *bookingTypeCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *reservationTypeCell;
 @property (strong, nonatomic) IBOutlet UILabel *numberOfPeopleLabel;
 @property (strong, nonatomic) IBOutlet UIStepper *numberOfPeopleStepper;
 @property (strong, nonatomic) IBOutlet UILabel *hoursLabel;
@@ -22,7 +22,7 @@
 - (IBAction)datePickerValueDidChange:(id)sender;
 - (IBAction)accountButtonPressed:(id)sender;
 - (IBAction)continueButtonPressed:(id)sender;
-- (IBAction)unwindFromBookingType:(UIStoryboardSegue *)unwindSegue;
+- (IBAction)unwindFromReservationType:(UIStoryboardSegue *)unwindSegue;
 - (IBAction)unwindFromAccount:(UIStoryboardSegue *)unwindSegue;
 
 @end
