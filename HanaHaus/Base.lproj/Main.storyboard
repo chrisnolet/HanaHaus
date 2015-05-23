@@ -129,7 +129,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Tue, Apr 21    9:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lfw-Ws-hs2">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Tue, Apr 21    9:00 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lfw-Ws-hs2">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
@@ -453,7 +453,7 @@
                                 <rect key="frame" x="105" y="40" width="110" height="110"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q2i-iS-wSC">
-                                <rect key="frame" x="20" y="322" width="280" height="50"/>
+                                <rect key="frame" x="20" y="324" width="280" height="50"/>
                                 <color key="backgroundColor" red="0.16078431369999999" green="0.3803921569" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="iyF-zX-YYO"/>
@@ -475,13 +475,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 hour" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDI-yT-lS6">
-                                <rect key="frame" x="137" y="245" width="47" height="20"/>
+                                <rect key="frame" x="137" y="246" width="47" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue, Apr 21 at 9:00 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6R-vo-fwt">
-                                <rect key="frame" x="77" y="272" width="167" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue, Apr 21 at 9:00 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6R-vo-fwt">
+                                <rect key="frame" x="77" y="274" width="167" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -495,10 +495,10 @@
                             <constraint firstItem="5NY-qF-cJu" firstAttribute="top" secondItem="DO9-ie-V6W" secondAttribute="bottom" constant="15" id="Jte-Rn-BCV"/>
                             <constraint firstAttribute="trailing" secondItem="DO9-ie-V6W" secondAttribute="trailing" constant="20" id="QY7-XA-Jr9"/>
                             <constraint firstAttribute="centerX" secondItem="Gwn-ih-EiZ" secondAttribute="centerX" id="Y3N-wj-Hy4"/>
-                            <constraint firstItem="n6R-vo-fwt" firstAttribute="top" secondItem="zDI-yT-lS6" secondAttribute="bottom" constant="7" id="bON-pL-7TE"/>
+                            <constraint firstItem="n6R-vo-fwt" firstAttribute="top" secondItem="zDI-yT-lS6" secondAttribute="bottom" constant="8" id="bON-pL-7TE"/>
                             <constraint firstAttribute="centerX" secondItem="n6R-vo-fwt" secondAttribute="centerX" id="cc4-uY-NLI"/>
                             <constraint firstItem="Q2i-iS-wSC" firstAttribute="leading" secondItem="aAS-xT-qvU" secondAttribute="leading" constant="20" id="i8y-sj-cky"/>
-                            <constraint firstItem="zDI-yT-lS6" firstAttribute="top" secondItem="5NY-qF-cJu" secondAttribute="bottom" constant="7" id="k8X-uP-cvY"/>
+                            <constraint firstItem="zDI-yT-lS6" firstAttribute="top" secondItem="5NY-qF-cJu" secondAttribute="bottom" constant="8" id="k8X-uP-cvY"/>
                             <constraint firstAttribute="trailing" secondItem="Q2i-iS-wSC" secondAttribute="trailing" constant="20" id="nt9-Sd-vC6"/>
                             <constraint firstItem="DO9-ie-V6W" firstAttribute="leading" secondItem="aAS-xT-qvU" secondAttribute="leading" constant="20" id="qeV-rd-PQ1"/>
                             <constraint firstItem="DO9-ie-V6W" firstAttribute="top" secondItem="Gwn-ih-EiZ" secondAttribute="bottom" constant="30" id="sVk-1A-AKx"/>

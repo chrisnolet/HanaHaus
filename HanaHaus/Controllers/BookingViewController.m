@@ -112,6 +112,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Hide date picker row if necessary
     if (!self.showDatePicker && indexPath.row == kTableViewDatePickerRow) {
         return 0;
     }
@@ -319,7 +320,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     dateFormatter.timeStyle = NSDateFormatterShortStyle;
-    dateFormatter.dateFormat = @"EEE, MMM d\th:mm a";
+    dateFormatter.dateFormat = @"EEE, MMM d    h:mm a";
 
     self.startDateCell.detailTextLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
 }
