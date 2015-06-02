@@ -28,14 +28,6 @@
 {
     [super viewDidLoad];
 
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
     // Recall account details
     self.accountManager = [[AccountManager alloc] init];
 
