@@ -10,13 +10,14 @@
 
 @implementation NSString (Plural)
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Class methods
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 + (NSString *)stringWithInteger:(NSInteger)value singularTerm:(NSString *)singular pluralTerm:(NSString *)plural
 {
-    if (value == 1) {
-        return [NSString stringWithFormat:@"1 %@", singular];
-    } else {
-        return [NSString stringWithFormat:@"%ld %@", value, plural];
-    }
+    return (value == 1) ? [NSString stringWithFormat:@"1 %@", singular]
+                        : [NSString stringWithFormat:@"%ld %@", value, plural];
 }
 
 @end
