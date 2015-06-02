@@ -12,6 +12,7 @@
 #import "ConfirmViewController.h"
 #import "AccountManager.h"
 #import "NSDate+BeginningOfDay.h"
+#import "NSDateFormatter+StringWithFormat.h"
 #import "NSString+Plural.h"
 
 @interface ReservationViewController ()
@@ -22,7 +23,8 @@
 
 - (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification;
 - (void)applicationSignificantTimeChange:(NSNotification *)notification;
-- (void)toggleDatePicker;
+- (void)setHeaderView:(UIView *)headerView;
+- (void)setShowDatePicker:(BOOL)showDatePicker animated:(BOOL)animated;
 - (void)updateHeaderFrame;
 - (void)updateStartDate;
 - (void)resetStartDate;
@@ -76,10 +78,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ReservationTypeSegue"]) {
+        ReservationTypeTableViewController *reservationTypeTableViewController = segue.destinationViewController;
 
-    }
-    else if ([segue.identifier isEqualToString:@"AccountSegue"]) {
-
+        reservationTypeTableViewController.reservationTypeIndex = self.reservationTypeIndex;
     }
     else if ([segue.identifier isEqualToString:@"AccountRequiredSegue"]) {
         AccountTableViewController *accountTableViewController = (AccountTableViewController *)[segue.destinationViewController
@@ -128,7 +129,7 @@
     if ([cell isEqual:self.startDateCell]) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-        [self toggleDatePicker];
+        [self setShowDatePicker:!self.showDatePicker animated:YES];
     }
 }
 
@@ -216,7 +217,27 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)unwindFromComplete:(UIStoryboardSegue *)unwindSegue
+{
+    [self setShowDatePicker:NO animated:NO];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private methods
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self updateHeaderFrame];
+    });
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)applicationSignificantTimeChange:(NSNotification *)notification
+{
+    [self resetStartDate];
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setHeaderView:(UIView *)headerView
@@ -238,51 +259,44 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification
+- (void)setShowDatePicker:(BOOL)showDatePicker animated:(BOOL)animated
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self updateHeaderFrame];
-    });
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)applicationSignificantTimeChange:(NSNotification *)notification
-{
-    [self resetStartDate];
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)toggleDatePicker
-{
-    self.showDatePicker = !self.showDatePicker;
+    self.showDatePicker = showDatePicker;
 
     // Show active color on date label
-    self.startDateCell.detailTextLabel.textColor = self.showDatePicker ? [UIColor redColor] : [UIColor blackColor];
+    self.startDateCell.detailTextLabel.textColor = showDatePicker ? [UIColor redColor] : [UIColor blackColor];
 
-    // Animate table view expansion
-    [UIView animateWithDuration:kAnimationDatePickerDuration
-                          delay:0
-         usingSpringWithDamping:1
-          initialSpringVelocity:1
-                        options:0
-                     animations:^{
+    if (animated) {
 
-                         // Show or hide date picker cell
-                         [self.tableView beginUpdates];
-                         [self.tableView reloadData];
-                         [self.tableView endUpdates];
+        // Animate table view expansion
+        [UIView animateWithDuration:kAnimationDatePickerDuration
+                              delay:0
+             usingSpringWithDamping:1
+              initialSpringVelocity:1
+                            options:0
+                         animations:^{
 
-                         // Scroll to date picker
-                         if (self.showDatePicker) {
-                             CGFloat offset = (self.datePicker.frame.size.height + self.startDateCell.frame.size.height) / 2;
+                             // Show or hide date picker cell
+                             [self.tableView beginUpdates];
+                             [self.tableView reloadData];
+                             [self.tableView endUpdates];
 
-                             self.tableView.contentOffset = CGPointMake(0, offset);
-                         } else {
-                             [self updateHeaderFrame];
-                         }
+                             // Scroll to date picker
+                             if (showDatePicker) {
+                                 CGFloat offset = (self.datePicker.frame.size.height + self.startDateCell.frame.size.height) / 2;
 
-                         [self.view layoutIfNeeded];
-                     } completion:nil];
+                                 self.tableView.contentOffset = CGPointMake(0, offset);
+                             } else {
+                                 [self updateHeaderFrame];
+                             }
+
+                             [self.view layoutIfNeeded];
+                         } completion:nil];
+    } else {
+
+        // Reload without animation
+        [self.tableView reloadData];
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -317,12 +331,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)updateStartDate
 {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    dateFormatter.timeStyle = NSDateFormatterShortStyle;
-    dateFormatter.dateFormat = @"EEE, MMM d    h:mm a";
-
-    self.startDateCell.detailTextLabel.text = [dateFormatter stringFromDate:self.datePicker.date];
+    self.startDateCell.detailTextLabel.text = [NSDateFormatter stringFromDate:self.datePicker.date
+                                                                   dateFormat:@"EEE, MMM d    h:mm a"];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

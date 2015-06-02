@@ -10,6 +10,4 @@
 
 @interface CompleteViewController : UIViewController
 
-- (IBAction)doneButtonPressed:(id)sender;
-
 @end

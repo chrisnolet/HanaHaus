@@ -27,6 +27,7 @@
 		839BF9551ACDF5FF00A8C370 /* ReservationTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839BF9541ACDF5FF00A8C370 /* ReservationTypeTableViewController.m */; };
 		83A5682D1ACE07B000D541A8 /* ConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5682C1ACE07B000D541A8 /* ConfirmViewController.m */; };
 		83A568301ACE174600D541A8 /* UIButton+ActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A5682F1ACE174600D541A8 /* UIButton+ActivityIndicatorView.m */; };
+		83C8E8601B1E4ED90050BB04 /* NSDateFormatter+StringWithFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C8E85F1B1E4ED90050BB04 /* NSDateFormatter+StringWithFormat.m */; };
 		83EDFA6C1AC75AE80013FD71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA6B1AC75AE80013FD71 /* main.m */; };
 		83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EDFA6E1AC75AE80013FD71 /* AppDelegate.m */; };
 		83EDFA781AC75AE80013FD71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83EDFA761AC75AE80013FD71 /* Main.storyboard */; };
@@ -67,6 +68,8 @@
 		83A5682C1ACE07B000D541A8 /* ConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmViewController.m; sourceTree = "<group>"; };
 		83A5682E1ACE174600D541A8 /* UIButton+ActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ActivityIndicatorView.h"; sourceTree = "<group>"; };
 		83A5682F1ACE174600D541A8 /* UIButton+ActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ActivityIndicatorView.m"; sourceTree = "<group>"; };
+		83C8E85E1B1E4ED90050BB04 /* NSDateFormatter+StringWithFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+StringWithFormat.h"; sourceTree = "<group>"; };
+		83C8E85F1B1E4ED90050BB04 /* NSDateFormatter+StringWithFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+StringWithFormat.m"; sourceTree = "<group>"; };
 		83EDFA661AC75AE70013FD71 /* HanaHaus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HanaHaus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EDFA6A1AC75AE80013FD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83EDFA6B1AC75AE80013FD71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 			children = (
 				83420E1E1AEDF67300697997 /* NSDate+BeginningOfDay.h */,
 				83420E1F1AEDF67300697997 /* NSDate+BeginningOfDay.m */,
+				83C8E85E1B1E4ED90050BB04 /* NSDateFormatter+StringWithFormat.h */,
+				83C8E85F1B1E4ED90050BB04 /* NSDateFormatter+StringWithFormat.m */,
 				83936F171AEAD43100897EDB /* NSString+Plural.h */,
 				83936F181AEAD43100897EDB /* NSString+Plural.m */,
 				83A5682E1ACE174600D541A8 /* UIButton+ActivityIndicatorView.h */,
@@ -317,6 +322,7 @@
 				83420E201AEDF67300697997 /* NSDate+BeginningOfDay.m in Sources */,
 				83936F191AEAD43100897EDB /* NSString+Plural.m in Sources */,
 				83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */,
+				83C8E8601B1E4ED90050BB04 /* NSDateFormatter+StringWithFormat.m in Sources */,
 				83EDFA6F1AC75AE80013FD71 /* AppDelegate.m in Sources */,
 				83EDFA6C1AC75AE80013FD71 /* main.m in Sources */,
 				836B2E161AF7E9D100BE39E1 /* AccountManager.m in Sources */,
