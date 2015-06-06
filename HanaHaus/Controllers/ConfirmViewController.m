@@ -7,6 +7,7 @@
 //
 
 #import "ConfirmViewController.h"
+#import "AccountManager.h"
 #import "NSDateFormatter+StringWithFormat.h"
 #import "NSString+Plural.h"
 #import "UIButton+ActivityIndicatorView.h"
@@ -83,29 +84,31 @@
 {
     [self.confirmButton startAnimating];
 
-    NSDictionary *reservation = @{
+    NSDictionary *reservationParameters = @{
         @"item_id": @"91",
-        @"cnt": @"1",
-        @"date_from": @"06/07/2015",
-        @"hour_from": @"16",
-        @"minute_from": @"00",
+        @"cnt": [NSString stringWithFormat:@"%ld", self.numberOfPeople],
+        @"date_from": [NSDateFormatter stringFromDate:self.startDate dateFormat:@"MM/dd/yyyy"],
+        @"hour_from": [NSDateFormatter stringFromDate:self.startDate dateFormat:@"H"],
+        @"minute_from": [NSDateFormatter stringFromDate:self.startDate dateFormat:@"mm"],
         @"date_to": @"06/07/2015",
         @"hour_to": @"17",
         @"minute_to": @"00"
     };
 
-    NSDictionary *account = @{
+    AccountManager *accountManager = [[AccountManager alloc] init];
+
+    NSDictionary *accountParameters = @{
         @"er_checkout": @"1",
-        @"c_name": @"Example",
-        @"c_email": @"example@example.com",
-        @"c_phone": @"(650) 555-0100",
-        @"c_zip": @"94301",
-        @"c_notes": @"Please delete this booking!",
+        @"c_name": accountManager.name,
+        @"c_email": accountManager.email,
+        @"c_phone": accountManager.phone,
+        @"c_zip": accountManager.zip,
+        @"c_notes": @"Reserved via iOS app",
         @"terms": @"1"
     };
 
     [self postWithUrl:@"index.php?controller=pjFrontEnd&action=pjActionCheckAvailability"
-           paramaters:reservation
+           paramaters:reservationParameters
            completion:^(NSDictionary *results) {
 
         [self postWithUrl:@"index.php?controller=pjFrontEnd&action=pjActionAddToCart"
@@ -117,12 +120,14 @@
                    completion:^(NSDictionary *results) {
 
                 [self postWithUrl:@"index.php?controller=pjFrontPublic&action=pjActionCheckout"
-                       paramaters:account
+                       paramaters:accountParameters
                        completion:^(NSDictionary *results) {
 
                     [self postWithUrl:@"index.php?controller=pjFrontEnd&action=pjActionProcessOrder"
                            paramaters:@{ @"er_preview": @"1", @"er_validate": @"1" }
                            completion:^(NSDictionary *results) {
+
+                       NSLog(@"API sequence complete");
 
                        [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
                     }];
