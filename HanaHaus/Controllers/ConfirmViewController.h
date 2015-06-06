@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^HTTPCompletionBlock)(NSDictionary *results);
+
 @interface ConfirmViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *numberOfPeopleLabel;
