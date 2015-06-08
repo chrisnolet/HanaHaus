@@ -10,7 +10,7 @@
 
 @interface UIAlertView (Error)
 
-+ (void)showAlertViewWithError:(NSError *)error;
 + (UIAlertView *)alertViewWithError:(NSError *)error;
++ (UIAlertView *)alertViewWithErrorMessage:(NSString *)message;
 
 @end

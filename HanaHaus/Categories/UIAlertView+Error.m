@@ -14,17 +14,15 @@
 #pragma mark - Class methods
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-+ (void)showAlertViewWithError:(NSError *)error
++ (UIAlertView *)alertViewWithError:(NSError *)error
 {
-    UIAlertView *alertView = [self alertViewWithError:error];
-
-    [alertView show];
+    return [self alertViewWithErrorMessage:[error localizedDescription]];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-+ (UIAlertView *)alertViewWithError:(NSError *)error
++ (UIAlertView *)alertViewWithErrorMessage:(NSString *)message
 {
-    NSArray *messages = @[ [error localizedDescription] ?: @"An error occured.", @"Please try again later." ];
+    NSArray *messages = @[ message ?: @"An error occured.", @"Please try again later." ];
 
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                         message:[messages componentsJoinedByString:@" "]

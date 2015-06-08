@@ -58,6 +58,7 @@
 //{
 //    [self.confirmButton startAnimating];
 //
+//    // Generate POST request
 //    NSURL *url = [NSURL URLWithString:@"http://hanahaus.com/reservation"];
 //
 //    NSDictionary *parameters = @{
@@ -72,17 +73,19 @@
 //    request.HTTPMethod = @"POST";
 //    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
 //
+//    // Perform API call
 //    [[[NSURLSession sharedSession] dataTaskWithRequest:request
 //                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 //        NSLog(@"Data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 //        NSLog(@"Response: %@", response);
 //        NSLog(@"Error: %@", error);
 //
+//        // Resume on main thread
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //            if (error) {
 //                [self.confirmButton stopAnimating];
 //
-//                return [UIAlertView showAlertViewWithError:error];
+//                return [[UIAlertView alertViewWithError:error] show];
 //            }
 //
 //            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
@@ -97,7 +100,7 @@
 {
     [self.confirmButton startAnimating];
 
-    AccountManager *accountManager = [[AccountManager alloc] init];
+    // Create parameter sets
     NSDate *endDate = [self.startDate dateByAddingHours:self.hours];
 
     NSDictionary *reservationParameters = @{
@@ -111,6 +114,8 @@
         @"minute_to": [NSDateFormatter stringFromDate:endDate dateFormat:@"mm"],
     };
 
+    AccountManager *accountManager = [[AccountManager alloc] init];
+
     NSDictionary *accountParameters = @{
         @"er_checkout": @"1",
         @"c_name": accountManager.name,
@@ -121,6 +126,7 @@
         @"terms": @"1"
     };
 
+    // Execute API calls in sequence
     [self performRequestWithUrl:@"index.php?controller=pjFrontEnd&action=pjActionCheckAvailability"
            paramaters:reservationParameters
            completion:^{
@@ -161,14 +167,25 @@
     [[[NSURLSession sharedSession] dataTaskWithRequest:request
                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
 
-        // Resume on main thread
+        // Return to main thread
         dispatch_async(dispatch_get_main_queue(), ^{
+            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+
+            // Show API errors if any
+            if (![results[@"status"] isEqualToString:@"OK"] && results[@"text"]) {
+                [self.confirmButton stopAnimating];
+
+                return [[UIAlertView alertViewWithErrorMessage:results[@"text"]] show];
+            }
+
+            // Show request and connection errors if any
             if (error) {
                 [self.confirmButton stopAnimating];
 
-                return [UIAlertView showAlertViewWithError:error];
+                return [[UIAlertView alertViewWithError:error] show];
             }
 
+            // Otherwise fire callback
             completion();
         });
     }] resume];
@@ -177,7 +194,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSURLRequest *)requestWithUrl:(NSString *)url parameters:(NSDictionary *)parameters
 {
-    // Generate POST request from relative path and parameters
+    // Generate POST request from path and parameters
     NSURL *baseUrl = [NSURL URLWithString:@"http://hanahaus.elasticbeanstalk.com/"];
     NSString *query = [self queryForParameters:parameters];
 
