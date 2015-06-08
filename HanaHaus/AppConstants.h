@@ -16,3 +16,5 @@ extern NSInteger const kTableViewDatePickerRow;
 extern NSTimeInterval const kAnimationDatePickerDuration;
 extern NSTimeInterval const kAnimationIndicateUpdateDelay;
 extern NSTimeInterval const kAnimationIndicateUpdateDuration;
+
+extern NSTimeInterval const kTimeSecondsPerMinute;

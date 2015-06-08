@@ -8,13 +8,16 @@
 
 #import "ConfirmViewController.h"
 #import "AccountManager.h"
+#import "NSDate+Calendar.h"
 #import "NSDateFormatter+StringWithFormat.h"
 #import "NSString+Plural.h"
 #import "UIButton+ActivityIndicatorView.h"
+#import "UIAlertView+Error.h"
 
 @interface ConfirmViewController ()
 
-- (void)postWithUrl:(NSString *)url paramaters:(NSDictionary *)parameters completion:(HTTPCompletionBlock)completion;
+- (void)performRequestWithUrl:(NSString *)url paramaters:(NSDictionary *)parameters completion:(void (^)())completion;
+- (NSURLRequest *)requestWithUrl:(NSString *)url parameters:(NSDictionary *)parameters;
 - (NSString *)queryForParameters:(NSDictionary *)parameters;
 
 @end
@@ -75,7 +78,17 @@
 //        NSLog(@"Response: %@", response);
 //        NSLog(@"Error: %@", error);
 //
-//        [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            if (error) {
+//                [self.confirmButton stopAnimating];
+//
+//                return [UIAlertView showAlertViewWithError:error];
+//            }
+//
+//            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//
+//            [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
+//        }];
 //    }] resume];
 //}
 
@@ -84,18 +97,19 @@
 {
     [self.confirmButton startAnimating];
 
+    AccountManager *accountManager = [[AccountManager alloc] init];
+    NSDate *endDate = [self.startDate dateByAddingHours:self.hours];
+
     NSDictionary *reservationParameters = @{
         @"item_id": @"91",
         @"cnt": [NSString stringWithFormat:@"%ld", self.numberOfPeople],
         @"date_from": [NSDateFormatter stringFromDate:self.startDate dateFormat:@"MM/dd/yyyy"],
         @"hour_from": [NSDateFormatter stringFromDate:self.startDate dateFormat:@"H"],
         @"minute_from": [NSDateFormatter stringFromDate:self.startDate dateFormat:@"mm"],
-        @"date_to": @"06/07/2015",
-        @"hour_to": @"17",
-        @"minute_to": @"00"
+        @"date_to": [NSDateFormatter stringFromDate:endDate dateFormat:@"MM/dd/yyyy"],
+        @"hour_to": [NSDateFormatter stringFromDate:endDate dateFormat:@"H"],
+        @"minute_to": [NSDateFormatter stringFromDate:endDate dateFormat:@"mm"],
     };
-
-    AccountManager *accountManager = [[AccountManager alloc] init];
 
     NSDictionary *accountParameters = @{
         @"er_checkout": @"1",
@@ -107,29 +121,27 @@
         @"terms": @"1"
     };
 
-    [self postWithUrl:@"index.php?controller=pjFrontEnd&action=pjActionCheckAvailability"
+    [self performRequestWithUrl:@"index.php?controller=pjFrontEnd&action=pjActionCheckAvailability"
            paramaters:reservationParameters
-           completion:^(NSDictionary *results) {
+           completion:^{
 
-        [self postWithUrl:@"index.php?controller=pjFrontEnd&action=pjActionAddToCart"
-               paramaters:@{ @"type": @"item", @"id": @"91", @"qty": @"1" }
-               completion:^(NSDictionary *results) {
+        [self performRequestWithUrl:@"index.php?controller=pjFrontEnd&action=pjActionAddToCart"
+               paramaters:@{ @"type": @"item", @"id": reservationParameters[@"item_id"], @"qty": reservationParameters[@"cnt"] }
+               completion:^{
 
-            [self postWithUrl:@"index.php?controller=pjFrontPublic&action=pjActionCart"
+            [self performRequestWithUrl:@"index.php?controller=pjFrontPublic&action=pjActionCart"
                    paramaters:@{ @"er_cart": @"1"}
-                   completion:^(NSDictionary *results) {
+                   completion:^{
 
-                [self postWithUrl:@"index.php?controller=pjFrontPublic&action=pjActionCheckout"
+                [self performRequestWithUrl:@"index.php?controller=pjFrontPublic&action=pjActionCheckout"
                        paramaters:accountParameters
-                       completion:^(NSDictionary *results) {
+                       completion:^{
 
-                    [self postWithUrl:@"index.php?controller=pjFrontEnd&action=pjActionProcessOrder"
+                    [self performRequestWithUrl:@"index.php?controller=pjFrontEnd&action=pjActionProcessOrder"
                            paramaters:@{ @"er_preview": @"1", @"er_validate": @"1" }
-                           completion:^(NSDictionary *results) {
+                           completion:^{
 
-                       NSLog(@"API sequence complete");
-
-                       [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
+                        [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
                     }];
                 }];
             }];
@@ -141,9 +153,28 @@
 #pragma mark - Private methods
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)postWithUrl:(NSString *)url paramaters:(NSDictionary *)parameters completion:(HTTPCompletionBlock)completion
+- (void)performRequestWithUrl:(NSString *)url paramaters:(NSDictionary *)parameters completion:(void (^)())completion
 {
-    // Perform HTTP POST to endpoint
+    // Generate POST request
+    NSURLRequest *request = [self requestWithUrl:url parameters:parameters];
+
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [self.confirmButton stopAnimating];
+
+                return [UIAlertView showAlertViewWithError:error];
+            }
+
+            completion();
+        });
+    }] resume];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSURLRequest *)requestWithUrl:(NSString *)url parameters:(NSDictionary *)parameters
+{
     NSURL *baseUrl = [NSURL URLWithString:@"http://hanahaus.elasticbeanstalk.com/"];
     NSString *query = [self queryForParameters:parameters];
 
@@ -152,35 +183,29 @@
                                                        timeoutInterval:10];
     request.HTTPMethod = @"POST";
     request.HTTPBody = [query dataUsingEncoding:NSUTF8StringEncoding];
-
     [request setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
 
-    NSLog(@"Headers: %@", request.allHTTPHeaderFields);
-    NSLog(@"Body: %@", query);
-
-    [[[NSURLSession sharedSession] dataTaskWithRequest:request
-                                     completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"Data: %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-        NSLog(@"Response: %@", response);
-        NSLog(@"Error: %@", error);
-
-        NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-
-        completion(results);
-    }] resume];
+    return [request copy];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString *)queryForParameters:(NSDictionary *)parameters
 {
+    // Encode query fragments
+    NSMutableCharacterSet *characterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
+    [characterSet removeCharactersInString:@"&+=?"];
+
     // Translate parameters to query string
-    NSMutableArray *components = [NSMutableArray arrayWithCapacity:[parameters count]];
+    NSMutableArray *parts = [NSMutableArray arrayWithCapacity:[parameters count]];
 
     for (NSString *key in parameters) {
-        [components addObject:[NSString stringWithFormat:@"%@=%@", key, parameters[key]]];
+        NSString *encodedKey = [key stringByAddingPercentEncodingWithAllowedCharacters:characterSet];
+        NSString *encodedValue = [parameters[key] stringByAddingPercentEncodingWithAllowedCharacters:characterSet];
+
+        [parts addObject:[NSString stringWithFormat:@"%@=%@", encodedKey, encodedValue]];
     }
 
-    return [components componentsJoinedByString:@"&"];
+    return [parts componentsJoinedByString:@"&"];
 }
 
 @end

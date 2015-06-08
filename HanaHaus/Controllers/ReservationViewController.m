@@ -11,7 +11,7 @@
 #import "AccountTableViewController.h"
 #import "ConfirmViewController.h"
 #import "AccountManager.h"
-#import "NSDate+BeginningOfDay.h"
+#import "NSDate+Calendar.h"
 #import "NSDateFormatter+StringWithFormat.h"
 #import "NSString+Plural.h"
 
@@ -339,11 +339,11 @@
 - (void)resetStartDate
 {
     // Round up to the nearest date picker interval
-    NSTimeInterval timeInterval = ceil([[NSDate date] timeIntervalSinceReferenceDate] / (self.datePicker.minuteInterval * 60))
-                                  * self.datePicker.minuteInterval * 60;
+    NSTimeInterval secondInterval = self.datePicker.minuteInterval * kTimeSecondsPerMinute;
+    NSTimeInterval timeInterval = ceil([[NSDate date] timeIntervalSinceReferenceDate] / secondInterval) * secondInterval;
 
     self.datePicker.date = [NSDate dateWithTimeIntervalSinceReferenceDate:timeInterval];
-    self.datePicker.minimumDate = [NSDate beginningOfDay];
+    self.datePicker.minimumDate = [[NSDate date] beginningOfDay];
 
     // Display date
     [self updateStartDate];

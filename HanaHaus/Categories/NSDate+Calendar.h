@@ -1,5 +1,5 @@
 //
-//  NSDate+BeginningOfDay.h
+//  NSDate+Calendar.h
 //  HanaHaus
 //
 //  Created by Chris Nolet on 4/26/15.
@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NSDate (BeginningOfDay)
+@interface NSDate (Calendar)
 
-+ (NSDate *)beginningOfDay;
+- (NSDate *)beginningOfDay;
+- (NSDate *)dateByAddingHours:(NSInteger)hours;
 
 @end
