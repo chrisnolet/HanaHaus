@@ -17,4 +17,4 @@ extern NSTimeInterval const kAnimationDatePickerDuration;
 extern NSTimeInterval const kAnimationIndicateUpdateDelay;
 extern NSTimeInterval const kAnimationIndicateUpdateDuration;
 
-extern NSTimeInterval const kTimeSecondsPerMinute;
+extern NSTimeInterval const kUnitsSecondsPerMinute;

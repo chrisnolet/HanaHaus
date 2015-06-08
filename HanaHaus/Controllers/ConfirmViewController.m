@@ -155,11 +155,13 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)performRequestWithUrl:(NSString *)url paramaters:(NSDictionary *)parameters completion:(void (^)())completion
 {
-    // Generate POST request
+    // Perform API call
     NSURLRequest *request = [self requestWithUrl:url parameters:parameters];
 
     [[[NSURLSession sharedSession] dataTaskWithRequest:request
                                      completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+
+        // Resume on main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 [self.confirmButton stopAnimating];
@@ -175,16 +177,16 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSURLRequest *)requestWithUrl:(NSString *)url parameters:(NSDictionary *)parameters
 {
+    // Generate POST request from relative path and parameters
     NSURL *baseUrl = [NSURL URLWithString:@"http://hanahaus.elasticbeanstalk.com/"];
     NSString *query = [self queryForParameters:parameters];
 
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url relativeToURL:baseUrl]
-                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                                       timeoutInterval:10];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url relativeToURL:baseUrl]];
     request.HTTPMethod = @"POST";
     request.HTTPBody = [query dataUsingEncoding:NSUTF8StringEncoding];
     [request setValue:@"XMLHttpRequest" forHTTPHeaderField:@"X-Requested-With"];
 
+    // Return immutable copy
     return [request copy];
 }
 

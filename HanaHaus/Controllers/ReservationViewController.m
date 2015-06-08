@@ -69,6 +69,15 @@
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+    // Fix header placement if in-call status bar has toggled
+    [self updateHeaderFrame];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -286,16 +295,17 @@
                                  CGFloat offset = (self.datePicker.frame.size.height + self.startDateCell.frame.size.height) / 2;
 
                                  self.tableView.contentOffset = CGPointMake(0, offset);
-                             } else {
-                                 [self updateHeaderFrame];
                              }
 
+                             // Animate header view resizing
+                             [self updateHeaderFrame];
                              [self.view layoutIfNeeded];
                          } completion:nil];
     } else {
 
         // Reload without animation
         [self.tableView reloadData];
+        [self updateHeaderFrame];
     }
 }
 
@@ -339,7 +349,7 @@
 - (void)resetStartDate
 {
     // Round up to the nearest date picker interval
-    NSTimeInterval secondInterval = self.datePicker.minuteInterval * kTimeSecondsPerMinute;
+    NSTimeInterval secondInterval = self.datePicker.minuteInterval * kUnitsSecondsPerMinute;
     NSTimeInterval timeInterval = ceil([[NSDate date] timeIntervalSinceReferenceDate] / secondInterval) * secondInterval;
 
     self.datePicker.date = [NSDate dateWithTimeIntervalSinceReferenceDate:timeInterval];
