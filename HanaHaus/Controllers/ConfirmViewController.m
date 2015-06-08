@@ -171,21 +171,21 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
-            // Show API errors if any
+            // Show API errors
             if (![results[@"status"] isEqualToString:@"OK"] && results[@"text"]) {
                 [self.confirmButton stopAnimating];
 
                 return [[UIAlertView alertViewWithErrorMessage:results[@"text"]] show];
             }
 
-            // Show request and connection errors if any
+            // Show request and connection errors
             if (error) {
                 [self.confirmButton stopAnimating];
 
                 return [[UIAlertView alertViewWithError:error] show];
             }
 
-            // Otherwise fire callback
+            // Fire callback
             completion();
         });
     }] resume];
@@ -210,11 +210,11 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString *)queryForParameters:(NSDictionary *)parameters
 {
-    // Encode query fragments
+    // Modify allowed character set
     NSMutableCharacterSet *characterSet = [[NSCharacterSet URLQueryAllowedCharacterSet] mutableCopy];
     [characterSet removeCharactersInString:@"&+=?"];
 
-    // Translate parameters to query string
+    // Create query string from parameters
     NSMutableArray *parts = [NSMutableArray arrayWithCapacity:[parameters count]];
 
     for (NSString *key in parameters) {
