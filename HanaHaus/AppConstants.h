@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
+extern NSString * const kSegmentKey;
+
 extern NSString * const kUserDefaultsAccountName;
 extern NSString * const kUserDefaultsAccountEmail;
 extern NSString * const kUserDefaultsAccountPhone;

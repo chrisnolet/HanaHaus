@@ -8,6 +8,8 @@
 
 #import "AppConstants.h"
 
+NSString * const kSegmentKey = @"Y4H4zqcZwJfFJK9zBDyEoMcVkH27aQAZ";
+
 NSString * const kUserDefaultsAccountName = @"Name";
 NSString * const kUserDefaultsAccountEmail = @"Email";
 NSString * const kUserDefaultsAccountPhone = @"Phone";
