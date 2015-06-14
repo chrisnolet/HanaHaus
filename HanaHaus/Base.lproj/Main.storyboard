@@ -142,7 +142,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X24-kQ-YMy" id="tjU-G7-yhE">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="YKn-fw-UbR">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="YKn-fw-UbR">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="451801090.07467598">
                                                         <!--2015-04-27 04:18:10 +0000-->
@@ -152,6 +152,11 @@
                                                     </connections>
                                                 </datePicker>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="YKn-fw-UbR" firstAttribute="leading" secondItem="tjU-G7-yhE" secondAttribute="leading" id="YRh-mH-tQe"/>
+                                                <constraint firstAttribute="trailing" secondItem="YKn-fw-UbR" secondAttribute="trailing" id="jQt-B1-7BZ"/>
+                                                <constraint firstItem="YKn-fw-UbR" firstAttribute="top" secondItem="tjU-G7-yhE" secondAttribute="top" id="jtD-SS-dKI"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="120" id="7g9-BZ-vli">
