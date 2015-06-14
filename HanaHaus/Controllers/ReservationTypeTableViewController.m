@@ -34,13 +34,14 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-
     self.reservationTypeIndex = indexPath.row;
 
     [self performSegueWithIdentifier:@"UnwindFromReservationTypeSegue" sender:nil];
 
-    [[SEGAnalytics sharedAnalytics] track:@"Selected Reservation Type" properties:@{ @"reservationType": cell.textLabel.text }];
+    [[SEGAnalytics sharedAnalytics] track:@"Selected Reservation Type" properties:@{
+        @"reservationTypeIndex": @(self.reservationTypeIndex),
+        @"reservationType": [tableView cellForRowAtIndexPath:indexPath].textLabel.text
+    }];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

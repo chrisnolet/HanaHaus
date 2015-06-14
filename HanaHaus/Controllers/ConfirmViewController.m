@@ -17,10 +17,11 @@
 
 @interface ConfirmViewController ()
 
+@property (strong, nonatomic) NSDictionary *properties;
+
 - (void)performRequestWithUrl:(NSString *)url paramaters:(NSDictionary *)parameters completion:(void (^)())completion;
 - (NSURLRequest *)requestWithUrl:(NSString *)url parameters:(NSDictionary *)parameters;
 - (NSString *)queryForParameters:(NSDictionary *)parameters;
-- (NSDictionary *)eventProperties;
 
 @end
 
@@ -39,7 +40,15 @@
     self.hoursLabel.text = [NSString stringWithInteger:self.hours singularTerm:@"hour" pluralTerm:@"hours"];
     self.startDateLabel.text = [NSDateFormatter stringFromDate:self.startDate dateFormat:@"EEE, MMM d 'at' h:mm a"];
 
-    [[SEGAnalytics sharedAnalytics] track:@"Viewed Reservation Summary" properties:[self eventProperties]];
+    // Save event properties
+    self.properties = @{
+        @"reservationTypeIndex": @(self.reservationTypeIndex),
+        @"numberOfPeople": @(self.numberOfPeople),
+        @"hours": @(self.hours),
+        @"starts": @(round([self.startDate timeIntervalSinceNow] / kUnitsSecondsPerMinute))
+    };
+
+    [[SEGAnalytics sharedAnalytics] track:@"Viewed Reservation Summary" properties:self.properties];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -106,11 +115,11 @@
 //
 //            [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
 //
-//            [[SEGAnalytics sharedAnalytics] track:@"Completed Reservation" properties:[self eventProperties]];
+//            [[SEGAnalytics sharedAnalytics] track:@"Completed Reservation" properties:self.properties];
 //        }];
 //    }] resume];
 //
-//    [[SEGAnalytics sharedAnalytics] track:@"Pressed Confirm Button" properties:[self eventProperties]];
+//    [[SEGAnalytics sharedAnalytics] track:@"Pressed Confirm Button" properties:self.properties];
 //}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -167,14 +176,14 @@
 
                         [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
 
-                        [[SEGAnalytics sharedAnalytics] track:@"Completed Reservation" properties:[self eventProperties]];
+                        [[SEGAnalytics sharedAnalytics] track:@"Completed Reservation" properties:self.properties];
                     }];
                 }];
             }];
         }];
     }];
 
-    [[SEGAnalytics sharedAnalytics] track:@"Pressed Confirm Button" properties:[self eventProperties]];
+    [[SEGAnalytics sharedAnalytics] track:@"Pressed Confirm Button" properties:self.properties];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -257,16 +266,6 @@
     }
 
     return [parts componentsJoinedByString:@"&"];
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSDictionary *)eventProperties
-{
-    return @{
-        @"numberOfPeople": @(self.numberOfPeople),
-        @"hours": @(self.hours),
-        @"starts": @(round([self.startDate timeIntervalSinceNow] / kUnitsSecondsPerMinute))
-    };
 }
 
 @end

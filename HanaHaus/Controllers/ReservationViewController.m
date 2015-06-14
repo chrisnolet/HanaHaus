@@ -209,6 +209,7 @@
     [self performSegueWithIdentifier:(accountRequired ? @"AccountRequiredSegue" : @"ConfirmSegue") sender:nil];
 
     [[SEGAnalytics sharedAnalytics] track:@"Pressed Continue Button" properties:@{
+        @"reservationTypeIndex": @(self.reservationTypeIndex),
         @"numberOfPeople": @(self.numberOfPeopleStepper.value),
         @"hours": @(self.hoursStepper.value),
         @"starts": @(round([self.datePicker.date timeIntervalSinceNow] / kUnitsSecondsPerMinute)),
