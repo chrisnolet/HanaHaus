@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
+#import <Analytics.h>
 #import "ReservationViewController.h"
 #import "ReservationTypeTableViewController.h"
 #import "AccountTableViewController.h"
@@ -90,6 +91,8 @@
         ReservationTypeTableViewController *reservationTypeTableViewController = segue.destinationViewController;
 
         reservationTypeTableViewController.reservationTypeIndex = self.reservationTypeIndex;
+
+        [[SEGAnalytics sharedAnalytics] track:@"Pressed Reservation Type"];
     }
     else if ([segue.identifier isEqualToString:@"AccountRequiredSegue"]) {
         AccountTableViewController *accountTableViewController = (AccountTableViewController *)[segue.destinationViewController
@@ -139,6 +142,8 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
         [self setShowDatePicker:!self.showDatePicker animated:YES];
+
+        [[SEGAnalytics sharedAnalytics] track:(self.showDatePicker ? @"Opened Date Picker" : @"Closed Date Picker")];
     }
 }
 
@@ -191,18 +196,24 @@
 - (IBAction)accountButtonPressed:(id)sender
 {
     [self performSegueWithIdentifier:@"AccountSegue" sender:nil];
+
+    [[SEGAnalytics sharedAnalytics] track:@"Pressed Account Button"];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (IBAction)continueButtonPressed:(id)sender
 {
     AccountManager *accountManager = [[AccountManager alloc] init];
+    BOOL accountRequired = [accountManager validate];
 
-    if ([accountManager validate]) {
-        [self performSegueWithIdentifier:@"AccountRequiredSegue" sender:nil];
-    } else {
-        [self performSegueWithIdentifier:@"ConfirmSegue" sender:nil];
-    }
+    [self performSegueWithIdentifier:(accountRequired ? @"AccountRequiredSegue" : @"ConfirmSegue") sender:nil];
+
+    [[SEGAnalytics sharedAnalytics] track:@"Pressed Continue Button" properties:@{
+        @"numberOfPeople": @(self.numberOfPeopleStepper.value),
+        @"hours": @(self.hoursStepper.value),
+        @"starts": @(round([self.datePicker.date timeIntervalSinceNow] / kUnitsSecondsPerMinute)),
+        @"accountRequired": @(accountRequired)
+    }];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -349,8 +360,8 @@
 - (void)resetStartDate
 {
     // Round up to the nearest date picker interval
-    NSTimeInterval secondInterval = self.datePicker.minuteInterval * kUnitsSecondsPerMinute;
-    NSTimeInterval timeInterval = ceil([[NSDate date] timeIntervalSinceReferenceDate] / secondInterval) * secondInterval;
+    NSTimeInterval datePickerInterval = self.datePicker.minuteInterval * kUnitsSecondsPerMinute;
+    NSTimeInterval timeInterval = ceil([[NSDate date] timeIntervalSinceReferenceDate] / datePickerInterval) * datePickerInterval;
 
     self.datePicker.date = [NSDate dateWithTimeIntervalSinceReferenceDate:timeInterval];
     self.datePicker.minimumDate = [[NSDate date] beginningOfDay];

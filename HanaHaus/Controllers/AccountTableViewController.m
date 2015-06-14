@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
+#import <Analytics.h>
+#import <Mixpanel.h>
 #import "AccountTableViewController.h"
 #import "EditCell.h"
 #import "AccountManager.h"
@@ -114,6 +116,15 @@
 
     // Dismiss modal
     [self performSegueWithIdentifier:@"UnwindFromAccountSegue" sender:nil];
+
+    [[SEGAnalytics sharedAnalytics] identify:[Mixpanel sharedInstance].distinctId traits:@{
+        @"name": self.accountManager.name,
+        @"email": self.accountManager.email,
+        @"phone": self.accountManager.phone,
+        @"zip": self.accountManager.zip
+    }];
+
+    [[SEGAnalytics sharedAnalytics] track:@"Updated Account"];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

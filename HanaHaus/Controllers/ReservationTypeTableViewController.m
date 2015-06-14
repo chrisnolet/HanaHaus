@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
+#import <Analytics.h>
 #import "ReservationTypeTableViewController.h"
 
 @implementation ReservationTypeTableViewController
@@ -33,9 +34,13 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
     self.reservationTypeIndex = indexPath.row;
 
     [self performSegueWithIdentifier:@"UnwindFromReservationTypeSegue" sender:nil];
+
+    [[SEGAnalytics sharedAnalytics] track:@"Selected Reservation Type" properties:@{ @"reservationType": cell.textLabel.text }];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

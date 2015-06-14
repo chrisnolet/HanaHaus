@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
+#import <Analytics.h>
 #import "ConfirmViewController.h"
 #import "AccountManager.h"
 #import "NSDate+Calendar.h"
@@ -19,6 +20,7 @@
 - (void)performRequestWithUrl:(NSString *)url paramaters:(NSDictionary *)parameters completion:(void (^)())completion;
 - (NSURLRequest *)requestWithUrl:(NSString *)url parameters:(NSDictionary *)parameters;
 - (NSString *)queryForParameters:(NSDictionary *)parameters;
+- (NSDictionary *)eventProperties;
 
 @end
 
@@ -30,10 +32,14 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+
     // Show reservation details
     self.numberOfPeopleLabel.text = [NSString stringWithInteger:self.numberOfPeople singularTerm:@"person" pluralTerm:@"people"];
     self.hoursLabel.text = [NSString stringWithInteger:self.hours singularTerm:@"hour" pluralTerm:@"hours"];
     self.startDateLabel.text = [NSDateFormatter stringFromDate:self.startDate dateFormat:@"EEE, MMM d 'at' h:mm a"];
+
+    [[SEGAnalytics sharedAnalytics] track:@"Viewed Reservation Summary" properties:[self eventProperties]];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -85,14 +91,26 @@
 //            if (error) {
 //                [self.confirmButton stopAnimating];
 //
-//                return [[UIAlertView alertViewWithError:error] show];
+//                [[UIAlertView alertViewWithError:error] show];
+//
+//                [[SEGAnalytics sharedAnalytics] track:@"Showed Error" properties:@{
+//                    @"description": [error localizedDescription],
+//                    @"url": url,
+//                    @"parameters": parameters
+//                }];
+//
+//                return;
 //            }
 //
 //            NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 //
 //            [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
+//
+//            [[SEGAnalytics sharedAnalytics] track:@"Completed Reservation" properties:[self eventProperties]];
 //        }];
 //    }] resume];
+//
+//    [[SEGAnalytics sharedAnalytics] track:@"Pressed Confirm Button" properties:[self eventProperties]];
 //}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -148,11 +166,15 @@
                            completion:^{
 
                         [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
+
+                        [[SEGAnalytics sharedAnalytics] track:@"Completed Reservation" properties:[self eventProperties]];
                     }];
                 }];
             }];
         }];
     }];
+
+    [[SEGAnalytics sharedAnalytics] track:@"Pressed Confirm Button" properties:[self eventProperties]];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -171,18 +193,28 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 
-            // Show API errors
-            if (![results[@"status"] isEqualToString:@"OK"] && results[@"text"]) {
-                [self.confirmButton stopAnimating];
+            // Show API and connection errors
+            NSString *message;
 
-                return [[UIAlertView alertViewWithErrorMessage:results[@"text"]] show];
+            if (![results[@"status"] isEqualToString:@"OK"] && results[@"text"]) {
+                message = results[@"text"];
+            }
+            else if (error) {
+                message = [error localizedDescription];
             }
 
-            // Show request and connection errors
-            if (error) {
+            if (message) {
                 [self.confirmButton stopAnimating];
 
-                return [[UIAlertView alertViewWithError:error] show];
+                [[UIAlertView alertViewWithErrorMessage:message] show];
+
+                [[SEGAnalytics sharedAnalytics] track:@"Showed Error" properties:@{
+                    @"description": message,
+                    @"url": url,
+                    @"parameters": parameters
+                }];
+
+                return;
             }
 
             // Fire callback
@@ -225,6 +257,16 @@
     }
 
     return [parts componentsJoinedByString:@"&"];
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSDictionary *)eventProperties
+{
+    return @{
+        @"numberOfPeople": @(self.numberOfPeople),
+        @"hours": @(self.hours),
+        @"starts": @(round([self.startDate timeIntervalSinceNow] / kUnitsSecondsPerMinute))
+    };
 }
 
 @end
