@@ -74,7 +74,7 @@
 {
     [super viewDidAppear:animated];
 
-    // Fix header placement if in-call status bar has toggled
+    // Fix header placement if in-call status bar visibility has changed
     [self updateHeaderFrame];
 }
 

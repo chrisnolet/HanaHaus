@@ -95,7 +95,7 @@
 //        NSLog(@"Response: %@", response);
 //        NSLog(@"Error: %@", error);
 //
-//        // Resume on main thread
+//        // Return to main thread
 //        dispatch_async(dispatch_get_main_queue(), ^{
 //            if (error) {
 //                [self.confirmButton stopAnimating];
