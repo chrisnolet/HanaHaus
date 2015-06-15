@@ -17,7 +17,7 @@
 
 @interface ConfirmViewController ()
 
-@property (strong, nonatomic) NSDictionary *properties;
+@property (strong, nonatomic) NSDictionary *eventProperties;
 
 - (void)performRequestWithUrl:(NSString *)url paramaters:(NSDictionary *)parameters completion:(void (^)())completion;
 - (NSURLRequest *)requestWithUrl:(NSString *)url parameters:(NSDictionary *)parameters;
@@ -41,14 +41,14 @@
     self.startDateLabel.text = [NSDateFormatter stringFromDate:self.startDate dateFormat:@"EEE, MMM d 'at' h:mm a"];
 
     // Save event properties
-    self.properties = @{
+    self.eventProperties = @{
         @"reservationTypeIndex": @(self.reservationTypeIndex),
         @"numberOfPeople": @(self.numberOfPeople),
         @"hours": @(self.hours),
-        @"starts": @(round([self.startDate timeIntervalSinceNow] / kUnitsSecondsPerMinute))
+        @"startDate": @(round([self.startDate timeIntervalSinceNow] / kUnitsSecondsPerMinute))
     };
 
-    [[SEGAnalytics sharedAnalytics] track:@"Viewed Reservation Summary" properties:self.properties];
+    [[SEGAnalytics sharedAnalytics] track:@"Viewed Reservation Summary" properties:self.eventProperties];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,11 +115,11 @@
 //
 //            [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
 //
-//            [[SEGAnalytics sharedAnalytics] track:@"Completed Reservation" properties:self.properties];
+//            [[SEGAnalytics sharedAnalytics] track:@"Completed Reservation" properties:self.eventProperties];
 //        }];
 //    }] resume];
 //
-//    [[SEGAnalytics sharedAnalytics] track:@"Pressed Confirm Button" properties:self.properties];
+//    [[SEGAnalytics sharedAnalytics] track:@"Pressed Confirm Button" properties:self.eventProperties];
 //}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -176,14 +176,14 @@
 
                         [self performSegueWithIdentifier:@"CompleteSegue" sender:nil];
 
-                        [[SEGAnalytics sharedAnalytics] track:@"Completed Reservation" properties:self.properties];
+                        [[SEGAnalytics sharedAnalytics] track:@"Completed Reservation" properties:self.eventProperties];
                     }];
                 }];
             }];
         }];
     }];
 
-    [[SEGAnalytics sharedAnalytics] track:@"Pressed Confirm Button" properties:self.properties];
+    [[SEGAnalytics sharedAnalytics] track:@"Pressed Confirm Button" properties:self.eventProperties];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
