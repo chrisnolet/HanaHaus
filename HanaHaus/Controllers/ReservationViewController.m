@@ -204,7 +204,7 @@
 - (IBAction)continueButtonPressed:(id)sender
 {
     AccountManager *accountManager = [[AccountManager alloc] init];
-    BOOL accountRequired = [accountManager validate];
+    BOOL accountRequired = (BOOL)[accountManager validate];
 
     [self performSegueWithIdentifier:(accountRequired ? @"AccountRequiredSegue" : @"ConfirmSegue") sender:nil];
 

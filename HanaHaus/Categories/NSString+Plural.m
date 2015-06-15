@@ -17,7 +17,7 @@
 + (NSString *)stringWithInteger:(NSInteger)value singularTerm:(NSString *)singular pluralTerm:(NSString *)plural
 {
     return (value == 1) ? [NSString stringWithFormat:@"1 %@", singular]
-                        : [NSString stringWithFormat:@"%ld %@", value, plural];
+                        : [NSString stringWithFormat:@"%@ %@", @(value), plural];
 }
 
 @end

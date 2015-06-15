@@ -132,7 +132,7 @@
 
     NSDictionary *reservationParameters = @{
         @"item_id": @"91",
-        @"cnt": [NSString stringWithFormat:@"%ld", self.numberOfPeople],
+        @"cnt": [NSString stringWithFormat:@"%ld", (long)self.numberOfPeople],
         @"date_from": [NSDateFormatter stringFromDate:self.startDate dateFormat:@"MM/dd/yyyy"],
         @"hour_from": [NSDateFormatter stringFromDate:self.startDate dateFormat:@"H"],
         @"minute_from": [NSDateFormatter stringFromDate:self.startDate dateFormat:@"mm"],
