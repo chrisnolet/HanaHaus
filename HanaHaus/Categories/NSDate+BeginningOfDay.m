@@ -1,14 +1,14 @@
 //
-//  NSDate+Calendar.m
+//  NSDate+BeginningOfDay.m
 //  HanaHaus
 //
 //  Created by Chris Nolet on 4/26/15.
 //  Copyright (c) 2015 Relaunch. All rights reserved.
 //
 
-#import "NSDate+Calendar.h"
+#import "NSDate+BeginningOfDay.h"
 
-@implementation NSDate (Calendar)
+@implementation NSDate (BeginningOfDay)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Public methods
@@ -21,15 +21,6 @@
                                                    fromDate:[NSDate date]];
 
     return [calendar dateFromComponents:dateComponents];
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSDate *)dateByAddingHours:(NSInteger)hours
-{
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    dateComponents.hour = hours;
-
-    return [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:self options:0];
 }
 
 @end

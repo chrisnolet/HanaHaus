@@ -19,7 +19,7 @@
 		83420E1A1AEDE86E00697997 /* Logo-Black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83420E171AEDE86E00697997 /* Logo-Black@3x.png */; };
 		83420E1B1AEDE86E00697997 /* Logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83420E181AEDE86E00697997 /* Logo@3x.png */; };
 		83420E1C1AEDE86E00697997 /* Profile@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 83420E191AEDE86E00697997 /* Profile@3x.png */; };
-		83420E201AEDF67300697997 /* NSDate+Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 83420E1F1AEDF67300697997 /* NSDate+Calendar.m */; };
+		83420E201AEDF67300697997 /* NSDate+BeginningOfDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 83420E1F1AEDF67300697997 /* NSDate+BeginningOfDay.m */; };
 		835227ED1ACD0E8D00B42DD2 /* Header.xib in Resources */ = {isa = PBXBuildFile; fileRef = 835227EC1ACD0E8D00B42DD2 /* Header.xib */; };
 		836B2E161AF7E9D100BE39E1 /* AccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 836B2E151AF7E9D100BE39E1 /* AccountManager.m */; };
 		8372D2491B0B1CBB00E24B3B /* ReservationTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8372D2481B0B1CBB00E24B3B /* ReservationTypeManager.m */; };
@@ -56,8 +56,8 @@
 		83420E171AEDE86E00697997 /* Logo-Black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Logo-Black@3x.png"; path = "Assets@3x/Logo-Black@3x.png"; sourceTree = "<group>"; };
 		83420E181AEDE86E00697997 /* Logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Logo@3x.png"; path = "Assets@3x/Logo@3x.png"; sourceTree = "<group>"; };
 		83420E191AEDE86E00697997 /* Profile@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Profile@3x.png"; path = "Assets@3x/Profile@3x.png"; sourceTree = "<group>"; };
-		83420E1E1AEDF67300697997 /* NSDate+Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Calendar.h"; sourceTree = "<group>"; };
-		83420E1F1AEDF67300697997 /* NSDate+Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calendar.m"; sourceTree = "<group>"; };
+		83420E1E1AEDF67300697997 /* NSDate+BeginningOfDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BeginningOfDay.h"; sourceTree = "<group>"; };
+		83420E1F1AEDF67300697997 /* NSDate+BeginningOfDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BeginningOfDay.m"; sourceTree = "<group>"; };
 		835227EC1ACD0E8D00B42DD2 /* Header.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Header.xib; sourceTree = "<group>"; };
 		836B2E141AF7E9D100BE39E1 /* AccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManager.h; sourceTree = "<group>"; };
 		836B2E151AF7E9D100BE39E1 /* AccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManager.m; sourceTree = "<group>"; };
@@ -207,8 +207,8 @@
 		83EDFA961AC75BFF0013FD71 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				83420E1E1AEDF67300697997 /* NSDate+Calendar.h */,
-				83420E1F1AEDF67300697997 /* NSDate+Calendar.m */,
+				83420E1E1AEDF67300697997 /* NSDate+BeginningOfDay.h */,
+				83420E1F1AEDF67300697997 /* NSDate+BeginningOfDay.m */,
 				83C8E85E1B1E4ED90050BB04 /* NSDateFormatter+StringWithFormat.h */,
 				83C8E85F1B1E4ED90050BB04 /* NSDateFormatter+StringWithFormat.m */,
 				83936F171AEAD43100897EDB /* NSString+Plural.h */,
@@ -383,7 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83420E201AEDF67300697997 /* NSDate+Calendar.m in Sources */,
+				83420E201AEDF67300697997 /* NSDate+BeginningOfDay.m in Sources */,
 				83936F191AEAD43100897EDB /* NSString+Plural.m in Sources */,
 				83EDFAA01AC75BFF0013FD71 /* AppConstants.m in Sources */,
 				83C8E8601B1E4ED90050BB04 /* NSDateFormatter+StringWithFormat.m in Sources */,

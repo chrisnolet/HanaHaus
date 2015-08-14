@@ -12,7 +12,7 @@
 #import "AccountTableViewController.h"
 #import "ConfirmViewController.h"
 #import "AccountManager.h"
-#import "NSDate+Calendar.h"
+#import "NSDate+BeginningOfDay.h"
 #import "NSDateFormatter+StringWithFormat.h"
 #import "NSString+Plural.h"
 
