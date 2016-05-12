@@ -10,7 +10,7 @@
 #import "ConfirmViewController.h"
 #import "AccountManager.h"
 #import "NSDate+BeginningOfDay.h"
-#import "NSDateFormatter+StringWithFormat.h"
+#import "NSDateFormatter+DateFormat.h"
 #import "NSString+Plural.h"
 #import "UIButton+ActivityIndicatorView.h"
 #import "UIAlertView+Error.h"
@@ -70,7 +70,7 @@
     [self.confirmButton startAnimating];
 
     // Generate POST request
-    NSURL *url = [NSURL URLWithString:@"http://hanahaus.com/reservation"];
+    NSURL *URL = [NSURL URLWithString:@"http://hanahaus.com/reservation"];
 
     NSDictionary *parameters = @{
         @"seats": @(self.numberOfPeople),
@@ -79,9 +79,9 @@
         @"hours": @(self.hours)
     };
 
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
-                                      cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
-                                  timeoutInterval:10];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                       timeoutInterval:10];
     request.HTTPMethod = @"POST";
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
 
@@ -100,7 +100,7 @@
 
                 [[SEGAnalytics sharedAnalytics] track:@"Showed Error" properties:@{
                     @"description": [error localizedDescription],
-                    @"url": url,
+                    @"url": URL,
                     @"parameters": parameters
                 }];
 

@@ -13,7 +13,7 @@
 #import "ConfirmViewController.h"
 #import "AccountManager.h"
 #import "NSDate+BeginningOfDay.h"
-#import "NSDateFormatter+StringWithFormat.h"
+#import "NSDateFormatter+DateFormat.h"
 #import "NSString+Plural.h"
 
 @interface ReservationViewController ()

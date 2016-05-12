@@ -10,6 +10,6 @@
 
 @interface EditCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UITextField *textField;
 
 @end
