@@ -1,23 +1,25 @@
 PODS:
-  - Analytics/Core-iOS (1.11.12):
+  - Analytics/Core-iOS (2.0.17):
     - TRVSDictionaryWithCaseInsensitivity (= 0.0.2)
-  - Analytics/Mixpanel (1.11.12):
+  - Analytics/Mixpanel (2.0.17):
     - Analytics/Core-iOS
     - Analytics/Segmentio
-    - Mixpanel (= 2.6.0)
-  - Analytics/Segmentio (1.11.12):
+    - Mixpanel (= 2.8.3)
+  - Analytics/Segmentio (2.0.17):
     - Analytics/Core-iOS
-  - Mixpanel (2.6.0):
-    - Mixpanel/MPCategoryHelpers (= 2.6.0)
-  - Mixpanel/MPCategoryHelpers (2.6.0)
+  - Mixpanel (2.8.3):
+    - Mixpanel/Mixpanel (= 2.8.3)
+  - Mixpanel/Mixpanel (2.8.3)
   - TRVSDictionaryWithCaseInsensitivity (0.0.2)
 
 DEPENDENCIES:
-  - Analytics/Mixpanel (~> 1.11)
+  - Analytics/Mixpanel (~> 2.0)
 
 SPEC CHECKSUMS:
-  Analytics: 845bdb1175c45d187396d0f723d959964fbbf0e8
-  Mixpanel: 488567f7138408f360377dd46e1d189655f8b435
+  Analytics: 51d6163cb568c8ede69f2b92ef4779d91e1524e2
+  Mixpanel: fd52e097ae0d27295d0595b2261c60b94d191fda
   TRVSDictionaryWithCaseInsensitivity: 51d2ccf52c6d645d27b63467a98fa02c556e01b0
 
-COCOAPODS: 0.37.2
+PODFILE CHECKSUM: 2405483a1b4fdc5314b158d13aea4bc1ef5f80e9
+
+COCOAPODS: 1.0.0
