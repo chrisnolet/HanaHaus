@@ -265,10 +265,9 @@
 {
     [_headerView removeFromSuperview];
 
-    // Keep reference to header view
     _headerView = headerView;
 
-    // Fill table view width
+    // Fill the table view width
     CGRect frame = CGRectMake(0, 0, self.tableView.frame.size.width, headerView.frame.size.height);
 
     headerView.frame = frame;

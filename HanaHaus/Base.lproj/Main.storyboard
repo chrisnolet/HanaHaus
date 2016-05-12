@@ -34,7 +34,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ENR-an-MZN">
-                            <rect key="frame" x="0.0" y="499" width="320" height="10"/>
+                            <rect key="frame" x="0.0" y="553" width="320" height="10"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -147,15 +147,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="163" id="X24-kQ-YMy">
-                                        <rect key="frame" x="0.0" y="216" width="320" height="163"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="217" id="X24-kQ-YMy">
+                                        <rect key="frame" x="0.0" y="216" width="320" height="217"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X24-kQ-YMy" id="tjU-G7-yhE">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="YKn-fw-UbR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="451801090.07467598">
                                                         <!--2015-04-27 04:18:10 +0000-->
                                                     </date>
@@ -168,12 +168,11 @@
                                                 <constraint firstItem="YKn-fw-UbR" firstAttribute="leading" secondItem="tjU-G7-yhE" secondAttribute="leading" id="YRh-mH-tQe"/>
                                                 <constraint firstAttribute="trailing" secondItem="YKn-fw-UbR" secondAttribute="trailing" id="jQt-B1-7BZ"/>
                                                 <constraint firstItem="YKn-fw-UbR" firstAttribute="top" secondItem="tjU-G7-yhE" secondAttribute="top" id="jtD-SS-dKI"/>
-                                                <constraint firstAttribute="bottom" secondItem="YKn-fw-UbR" secondAttribute="bottom" id="xPY-f3-AJ2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="120" id="7g9-BZ-vli">
-                                        <rect key="frame" x="0.0" y="379" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="433" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7g9-BZ-vli" id="btF-I9-do4">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
