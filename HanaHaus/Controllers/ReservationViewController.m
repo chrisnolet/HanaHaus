@@ -42,12 +42,6 @@
 {
     [super viewDidLoad];
 
-    // Adjust header placement after toggling in-call status bar
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(applicationWillChangeStatusBarFrame:)
-                                                 name:UIApplicationWillChangeStatusBarFrameNotification
-                                               object:nil];
-
     // Reset date picker at midnight
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(applicationSignificantTimeChange:)
@@ -67,15 +61,6 @@
     [super viewWillAppear:animated];
 
     [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-
-    // Fix header placement if in-call status bar visibility has changed
-    [self updateHeaderFrame];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -245,14 +230,6 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private methods
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self updateHeaderFrame];
-    });
-}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)applicationSignificantTimeChange:(NSNotification *)notification
