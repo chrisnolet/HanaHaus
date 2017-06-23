@@ -22,7 +22,6 @@
 @property (nonatomic, assign) NSInteger reservationTypeIndex;
 @property (nonatomic, assign) BOOL showDatePicker;
 
-- (void)applicationWillChangeStatusBarFrame:(NSNotification *)notification;
 - (void)applicationSignificantTimeChange:(NSNotification *)notification;
 - (void)setHeaderView:(UIView *)headerView;
 - (void)setShowDatePicker:(BOOL)showDatePicker animated:(BOOL)animated;
